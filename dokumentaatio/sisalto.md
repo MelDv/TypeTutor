@@ -11,6 +11,6 @@ pit-raportti | 0 | n
 --------------- | ----- | ------
 testausdokumentti | 0 | n
 --------------- | ----- | ------
-tuntikirjanpito | 1 | n
+tuntikirjanpito | 2 | n
 --------------- | ----- | ------
 
