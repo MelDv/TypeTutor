@@ -23,3 +23,9 @@ Koska aihe on perinpohjaisen tylsä eikä kukaan halua käyttää tällaiseen ai
     * Tulosten jakaminen somessa
 
 Kaikkia kohtia ei ehdi tehdä kurssin aikana valmiiksi, erityisesti pelillistämisosuus animointeineen yms. ei kuulune kurssin olennaisimpaan sisältöön.
+
+Alustavassa luokkakaaviossa ei vielä näy esim. logiikkakerroksen kaikkia luokkia.
+![Luokkakaavio](luokkakaavio.png "luokkakaavio")
+
+Alustava, hyvin pelkistetty sekvenssikaavio.
+![Sekvenssikaavio](sekvenssikaavio.png "sekvenssikaavio")
