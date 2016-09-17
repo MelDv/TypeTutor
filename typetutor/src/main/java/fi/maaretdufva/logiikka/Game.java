@@ -10,5 +10,12 @@ package fi.maaretdufva.logiikka;
  * @author md
  */
 public class Game {
+    private String opitutKirjaimet;
+    private String opittavatKirjaimet;
+    
+    public Game() {
+        this.opittavatKirjaimet="abcdefghijklmnopqrstuvwxyzåäö";
+        this.opitutKirjaimet="";
+    }
     
 }
