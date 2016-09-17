@@ -1,12 +1,12 @@
 # TypeTutor
 
-**TypeTutor is a java-program for learning to type with ten fingers.**
+**TypeTutor on java-ohjelma kymmensormijärjestelmän opetteluun.**
 
-Typing is an easy skill to learn, but it can feel like a tedious task. TypeTutor uses gamification to make the job entertaining and to motivate you to keep practicing.
+Kymmensormijärjestelmä on erittäin hyödyllinen taito ja se on nopea oppia, mutta aloittaminen voi tuntua työläältä. TypeTutor tekee tehtävästä hauskemman pelillistämisen avulla ja motivoi jatkamaan loppuun saakka.
 
-TypeTutor can be used by anyone, who doesn't want to waste time looking for letters on a keyboard. 
+TypeTutoria voi käyttää kuka tahansa, joka ei halua enää hukata aikaa kirjainten etsimiseen näppäimistöltä.
 
-##Documentation:
+##Dokumentaatio:
 
 * [Aiheen kuvaus](dokumentaatio/aiheenKuvausjaRakenne.md)
 * [Käyttöohje](dokumentaatio/käyttöohjeet.md)
