@@ -8,6 +8,6 @@ TypeTutoria voi käyttää kuka tahansa, joka ei halua enää hukata aikaa kirja
 
 ##Dokumentaatio:
 
-* [Aiheen kuvaus](dokumentaatio/aiheenKuvausjaRakenne.md)
+* [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 * [Käyttöohje](dokumentaatio/käyttöohjeet.md)
 * [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md) 
