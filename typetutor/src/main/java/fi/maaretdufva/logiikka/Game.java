@@ -5,6 +5,8 @@
  */
 package fi.maaretdufva.logiikka;
 
+import fi.maaretdufva.users.User;
+
 /**
  *
  * @author md
@@ -12,10 +14,20 @@ package fi.maaretdufva.logiikka;
 public class Game {
     private String opitutKirjaimet;
     private String opittavatKirjaimet;
+    private User user;
     
     public Game() {
         this.opittavatKirjaimet="abcdefghijklmnopqrstuvwxyzåäö";
         this.opitutKirjaimet="";
+        this.user = new User();
     }
+    
+    public void setLevel() {
+        if (user.getLevel() < 1){
+            OnBoarding.start();
+        }
+    }
+    
+    
     
 }

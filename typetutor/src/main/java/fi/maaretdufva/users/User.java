@@ -8,5 +8,14 @@ package fi.maaretdufva.users;
  * @author Maaret Dufva
  */
 public class User {
+    private int level;
+    
+    public User() {
+        this.level=0;
+    }
+
+    public int getLevel() {       
+        return this.level;
+    }
     
 }
