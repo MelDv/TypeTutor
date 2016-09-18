@@ -9,7 +9,6 @@ import fi.maaretdufva.users.User;
 public class Game {
 
     //TÄMÄ ON KESKENERÄINEN LUOKKA.
-    
     private OnBoarding aloita;
     private String opitutKirjaimet;
     private String opittavatKirjaimet;
@@ -38,9 +37,5 @@ public class Game {
             Advanced anvanc = new Advanced(user.getLevel());
             anvanc.start();
         }
-    }
-    
-    public User palautaKehitys() {
-        return user;
     }
 }
