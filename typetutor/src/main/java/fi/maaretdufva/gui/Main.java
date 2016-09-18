@@ -3,6 +3,7 @@
  */
 package fi.maaretdufva.gui;
 
+import fi.maaretdufva.logiikka.OnBoarding;
 import fi.maaretdufva.users.User;
 import static java.lang.System.in;
 import java.util.Scanner;
@@ -16,8 +17,16 @@ public class Main {
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
         User user = new User();
-        System.out.println("Tervetuloa kirjoittamaan! Oletko jo rekisteröitynyt?");
+        System.out.println("Tervetuloa kirjoittamaan! "
+                + "Voit tutustua ohjelmaan komennolla 'jatka' "
+                + "tai kirjautua/rekisteröityä kirjoittamalla käyttäjätunnuksesi.");
         String teksti = lukija.nextLine();
+        
+        if (teksti.equals("jatka")) {
+            OnBoarding.start();
+        } if (user.kaikkiKayttajat(teksti) == true) {
+            
+        }
 
     }
 
