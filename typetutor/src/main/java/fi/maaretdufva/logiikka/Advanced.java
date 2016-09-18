@@ -11,10 +11,11 @@ package fi.maaretdufva.logiikka;
  */
 public class Advanced implements Tasot {
 
-    String opeteltavat;
+    private int level;
 
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
-    public Advanced() {
+    public Advanced(int level) {
+        this.level = level;
     }
 
     @Override

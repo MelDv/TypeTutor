@@ -10,18 +10,26 @@ package fi.maaretdufva.logiikka;
 public class Basic implements Tasot {
 
     private Game game;
+    private int level;
 
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
-    public Basic() {
-     }
+    public Basic(int level) {
+        this.level = level;
+    }
 
     @Override
     public void setLevel(int level) {
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     @Override
     public void start() {
-        jf();
+        if (level < 1) {
+            jf();
+        }
     }
 
     public void jf() {

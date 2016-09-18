@@ -27,7 +27,7 @@ public class User {
         this.sukunimi = "";
         this.email = "";
         this.salasana = "1234";
-        this.opitutKirjaimet="";
+        this.opitutKirjaimet = "";
         testaaKayttajanimi(kayttajanimi);
     }
 
@@ -63,6 +63,10 @@ public class User {
         this.sukunimi = sukunimi;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setSalasana(String salasana) {
         this.salasana = salasana;
     }
@@ -95,12 +99,6 @@ public class User {
         return opitutKirjaimet;
     }
 
-    @Override
-    public String toString() {
-        return this.kayttajanimi + ": " + this.etunimi + " "
-                + this.sukunimi + " sähköposti: " + this.email;
-    }
-
     public boolean testaaSalasana(String testattava) {
         if (this.salasana.equals(testattava)) {
             return true;
@@ -120,5 +118,11 @@ public class User {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.kayttajanimi + ": " + this.etunimi + " "
+                + this.sukunimi + ", taso: " + this.level + "\n sähköposti: " + this.email;
     }
 }

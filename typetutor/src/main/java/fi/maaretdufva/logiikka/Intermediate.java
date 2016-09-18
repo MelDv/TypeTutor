@@ -10,9 +10,12 @@ package fi.maaretdufva.logiikka;
  * @author Maaret
  */
 public class Intermediate implements Tasot {
-    // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
 
-    public Intermediate() {
+    // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
+    private int level;
+
+    public Intermediate(int level) {
+        this.level = level;
     }
 
     @Override
