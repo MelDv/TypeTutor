@@ -11,9 +11,8 @@ import java.util.Map;
  * @author Maaret Dufva
  */
 public class AllUsers {
-    
-    // TÄMÄ ON LÄHES VALMIS LUOKKA. TARKASTA KAIKKI!
 
+    // TÄMÄ ON LÄHES VALMIS LUOKKA. TARKASTA KAIKKI!
     private User user;
     private Map<String, User> all;
 
@@ -42,7 +41,7 @@ public class AllUsers {
     }
 
     public boolean findUser(String kayttajanimi) {
-        if (this.all==null) {
+        if (this.all == null) {
             return false;
         }
         if (this.all.containsKey(kayttajanimi)) {
