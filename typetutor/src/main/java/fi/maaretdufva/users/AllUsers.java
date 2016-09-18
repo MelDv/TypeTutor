@@ -43,7 +43,6 @@ public class AllUsers {
         if (this.all.containsKey(kayttajanimi)) {
             return this.all.get(kayttajanimi);
         }
-
         return null;
     }
 
@@ -55,4 +54,14 @@ public class AllUsers {
         this.all.put(kayttaja.getKayttajanimi(), kayttaja);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder userlist = null;
+
+        for (int i = 0; i < all.size(); i++) {
+            userlist.append("\n");
+            userlist.append(user.toString());
+        }
+        return userlist.toString();
+    }
 }

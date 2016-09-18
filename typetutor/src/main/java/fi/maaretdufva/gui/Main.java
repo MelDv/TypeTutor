@@ -16,20 +16,20 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
-        User user = new User();
+        User user = new User("Jaska"); //poista Jaska, kun testaus valmis
         System.out.println("Tervetuloa kirjoittamaan! "
                 + "Voit tutustua ohjelmaan komennolla 'jatka' "
                 + "tai kirjautua/rekisteröityä kirjoittamalla käyttäjätunnuksesi.");
         String teksti = lukija.nextLine();
-        
+
         if (teksti.equals("jatka")) {
             OnBoarding.start();
-        } if (user.kaikkiKayttajat(teksti) == true) {
-            
         }
-
+        if (user.etsiKayttajanimi(teksti) == true) {
+            System.out.println("Tervetuloa takaisin, " + teksti);
+        }
+        
+        // lisää uudet käyttäjät myös AllUsers-listaan!
     }
-
-
 
 }

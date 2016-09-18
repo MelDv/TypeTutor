@@ -16,13 +16,24 @@ public class User {
     private String sukunimi;
     private String email;
 
-    public User() {
+    public User(String kayttajanimi) {
         this.level = 0;
         this.kaikki = new AllUsers();
-        this.kayttajanimi = "";
+        this.kayttajanimi = kayttajanimi;
         this.etunimi = "";
         this.sukunimi = "";
         this.email = "";
+    }
+
+    public User() {
+    }
+    
+    public void setAll(String etunimi, String sukunimi, String email) {
+        // Ei tarvita konstruktoria, joka asettaisi kaikki, koska aina asetetaan
+        // ensin käyttäjänimi.
+        this.etunimi=etunimi;
+        this.sukunimi=sukunimi;
+        this.email=email;
     }
 
     public int getLevel() {
@@ -34,6 +45,22 @@ public class User {
             return true;
         }
         return false;
+    }
+
+    public void setEtunimi(String etunimi) {
+        this.etunimi = etunimi;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setKayttajanimi(String kayttajanimi) {
+        this.kayttajanimi = kayttajanimi;
+    }
+
+    public void setSukunimi(String sukunimi) {
+        this.sukunimi = sukunimi;
     }
 
     public String getKayttajanimi() {
@@ -52,4 +79,9 @@ public class User {
         return email;
     }
 
+    @Override
+    public String toString() {
+        return this.kayttajanimi + ": " + this.etunimi + " "
+                + this.sukunimi + " sähköposti: " + this.email;
+    }
 }
