@@ -10,6 +10,7 @@ import java.util.Map;
  * @author md
  */
 public interface Teksti {
+    
     public void setToisto();
     public int getToisto();
 }

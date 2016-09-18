@@ -11,7 +11,9 @@ package fi.maaretdufva.logiikka;
  */
 public class Intermediate implements Tasot {
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
-    
+
+    public Intermediate() {
+    }
 
     @Override
     public void setLevel(int level) {
@@ -20,5 +22,4 @@ public class Intermediate implements Tasot {
     @Override
     public void start() {
     }
-
 }

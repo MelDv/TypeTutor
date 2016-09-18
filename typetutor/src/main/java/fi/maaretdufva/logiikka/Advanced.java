@@ -10,11 +10,11 @@ package fi.maaretdufva.logiikka;
  * @author Maaret
  */
 public class Advanced implements Tasot {
-    
+
+    String opeteltavat;
+
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
-    
-    public Advanced(String opitutKirjaimet) {
-        
+    public Advanced() {
     }
 
     @Override
@@ -24,5 +24,4 @@ public class Advanced implements Tasot {
     @Override
     public void start() {
     }
-
 }
