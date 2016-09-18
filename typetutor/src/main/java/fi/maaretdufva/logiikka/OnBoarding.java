@@ -10,14 +10,16 @@ package fi.maaretdufva.logiikka;
  * @author md
  */
 public class OnBoarding {
+    
+    // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
 
-    public static void start() {
+    public void start() {
         // visual instructions, video and guides
-        helpMe();
+        EkaHarjoitus();
     }
     
-    public static void helpMe() {
-        
+    public static void EkaHarjoitus() {
+        // alkupeli, jossa kirjoitetaan esim. "auta auto alamäkeen"
     }
 
 }

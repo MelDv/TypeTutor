@@ -3,41 +3,41 @@
  */
 package fi.maaretdufva.users;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Maaret Dufva
  */
 public class User {
 
+    // TÄMÄ ON LÄHES VALMIS LUOKKA. TARKASTA KAIKKI!
     private int level;
-    private AllUsers kaikki;
     private String kayttajanimi;
     private String etunimi;
     private String sukunimi;
     private String email;
+    private String salasana;
+    private String opitutKirjaimet;
 
     public User(String kayttajanimi) {
-        this.level = 0;
-        this.kaikki = new AllUsers();
         this.kayttajanimi = kayttajanimi;
+        this.level = 0;
         this.etunimi = "";
         this.sukunimi = "";
         this.email = "";
+        this.salasana = "1234";
+        this.opitutKirjaimet="";
+        testaaKayttajanimi(kayttajanimi);
     }
 
-    public User() {
-    }
-    
-    public void setAll(String etunimi, String sukunimi, String email) {
+    public void setAll(String etunimi, String sukunimi, String email, String salasana) {
         // Ei tarvita konstruktoria, joka asettaisi kaikki, koska aina asetetaan
         // ensin käyttäjänimi.
-        this.etunimi=etunimi;
-        this.sukunimi=sukunimi;
-        this.email=email;
-    }
-
-    public int getLevel() {
-        return this.level;
+        this.etunimi = etunimi;
+        this.sukunimi = sukunimi;
+        this.email = email;
+        this.salasana = salasana;
     }
 
     public boolean etsiKayttajanimi(String kayttis) {
@@ -63,6 +63,18 @@ public class User {
         this.sukunimi = sukunimi;
     }
 
+    public void setSalasana(String salasana) {
+        this.salasana = salasana;
+    }
+
+    public void setOpitutKirjaimet(String opitutKirjaimet) {
+        this.opitutKirjaimet = opitutKirjaimet;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
     public String getKayttajanimi() {
         return this.kayttajanimi;
     }
@@ -79,9 +91,34 @@ public class User {
         return email;
     }
 
+    public String getOpitutKirjaimet() {
+        return opitutKirjaimet;
+    }
+
     @Override
     public String toString() {
         return this.kayttajanimi + ": " + this.etunimi + " "
                 + this.sukunimi + " sähköposti: " + this.email;
+    }
+
+    public boolean testaaSalasana(String testattava) {
+        if (this.salasana.equals(testattava)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean testaaNull(String syote) {
+        if (syote == null) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean testaaKayttajanimi(String kayttajanimi) {
+        if (kayttajanimi.equals("lopeta") || kayttajanimi.equals("jatka")) {
+            return false;
+        }
+        return true;
     }
 }

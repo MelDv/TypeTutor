@@ -11,12 +11,14 @@ import java.util.Map;
  * @author Maaret Dufva
  */
 public class AllUsers {
+    
+    // TÄMÄ ON LÄHES VALMIS LUOKKA. TARKASTA KAIKKI!
 
     private User user;
     private Map<String, User> all;
 
     public AllUsers(User lisattava) {
-        this.user = new User();
+        this.user = lisattava;
         this.all = new HashMap<>();
         this.all.put(lisattava.getKayttajanimi(), lisattava);
     }
@@ -39,11 +41,14 @@ public class AllUsers {
         this.all.put(lisattava.getKayttajanimi(), lisattava);
     }
 
-    public User findUser(String kayttajanimi) {
-        if (this.all.containsKey(kayttajanimi)) {
-            return this.all.get(kayttajanimi);
+    public boolean findUser(String kayttajanimi) {
+        if (this.all==null) {
+            return false;
         }
-        return null;
+        if (this.all.containsKey(kayttajanimi)) {
+            return true;
+        }
+        return false;
     }
 
     public void paivitaKayttaja(String vanhaKayttajatunnus, User kayttaja) {
