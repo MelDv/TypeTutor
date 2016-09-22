@@ -1,13 +1,13 @@
 /*
  * Tämä on pelitasojen rajapinta.
  */
-package fi.maaretdufva.logiikka;
+package fi.maaretdufva.logic;
 
 /**
  *
  * @author Maaret
  */
-public interface  Tasot {
+public interface  Levels {
     
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA TOIMINTA!!
 

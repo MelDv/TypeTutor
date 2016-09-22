@@ -5,7 +5,7 @@
  */
 package fi.maaretdufva.gui;
 
-import fi.maaretdufva.logiikka.Game;
+import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.AllUsers;
 import fi.maaretdufva.users.User;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Maaret
  */
-public class Tili {
+public class Account {
     
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
 
@@ -22,7 +22,7 @@ public class Tili {
     private User user;
     private AllUsers kaikki;
 
-    public Tili() {
+    public Account() {
         this.lukija = new Scanner(System.in);
         this.user = new User("Jaska"); //poista Jaska, kun testaus valmis
         this.kaikki = new AllUsers();

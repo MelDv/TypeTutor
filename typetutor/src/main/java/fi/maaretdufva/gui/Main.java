@@ -3,7 +3,7 @@
  */
 package fi.maaretdufva.gui;
 
-import fi.maaretdufva.logiikka.Game;
+import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.User;
 
 /**
@@ -13,7 +13,7 @@ import fi.maaretdufva.users.User;
 public class Main {
 
     public static void main(String[] args) {
-        Tili tili = new Tili();       
+        Account tili = new Account();       
         User user = new User("");
 
         System.out.println("Tervetuloa kirjoittamaan! ");

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.maaretdufva.logiikka;
+package fi.maaretdufva.logic;
 
 /**
  *
  * @author Maaret
  */
-public class Advanced implements Tasot {
+public class Advanced implements Levels {
 
     private int level;
 

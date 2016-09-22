@@ -1,13 +1,13 @@
 /*
  * Lähtötaso
  */
-package fi.maaretdufva.logiikka;
+package fi.maaretdufva.logic;
 
 /**
  *
  * @author Maaret
  */
-public class Basic implements Tasot {
+public class Basic implements Levels {
 
     private int level;
 

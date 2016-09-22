@@ -2,7 +2,7 @@
  * The main class for the program.
  * @author md
  */
-package fi.maaretdufva.logiikka;
+package fi.maaretdufva.logic;
 
 import fi.maaretdufva.users.User;
 
@@ -12,10 +12,10 @@ public class Game {
     private OnBoarding aloita;
     private String opitutKirjaimet;
     private String opittavatKirjaimet;
-    private User user;
+    private User kayttaja;
 
     public Game(User user) {
-        this.user = user; //tämä luokka palauttaa käyttäjän kehityksen.
+        this.kayttaja = user; //tämä luokka palauttaa käyttäjän kehityksen.
         this.aloita = new OnBoarding();
     }
 
@@ -23,18 +23,18 @@ public class Game {
     }
 
     public void start() {
-        int level = user.getLevel();
-        if (user == null || level < 1) {
+        int level = kayttaja.getLevel();
+        if (kayttaja == null || level < 1) {
             aloita.start();
         }
         if (level < 6) {
-            Basic basic = new Basic(user.getLevel());
+            Basic basic = new Basic(kayttaja.getLevel());
             basic.start();
         } else if (level < 16) {
-            Intermediate interm = new Intermediate(user.getLevel());
+            Intermediate interm = new Intermediate(kayttaja.getLevel());
             interm.start();
         } else {
-            Advanced anvanc = new Advanced(user.getLevel());
+            Advanced anvanc = new Advanced(kayttaja.getLevel());
             anvanc.start();
         }
     }
