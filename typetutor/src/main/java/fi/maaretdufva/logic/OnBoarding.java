@@ -3,7 +3,7 @@
  * It can be repeated at any time in case the player forgets how to move forward 
  * or she returns to the game after a break.
  */
-package fi.maaretdufva.logiikka;
+package fi.maaretdufva.logic;
 
 /**
  *
@@ -14,10 +14,10 @@ public class OnBoarding {
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
     public void start() {
         // visual instructions, video and guides
-        ekaHarjoitus();
+        FirstExercise();
     }
 
-    public static void ekaHarjoitus() {
+    public static void FirstExercise() {
         // alkupeli, jossa kirjoitetaan esim. "auta auto alamäkeen"
     }
 

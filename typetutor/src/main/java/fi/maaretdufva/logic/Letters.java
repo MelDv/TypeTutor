@@ -1,7 +1,7 @@
 /*
  * Tämä luokka luo satunnaiset kirjainyhdistelmät kirjainten harjoitteluun.
  */
-package fi.maaretdufva.logiikka;
+package fi.maaretdufva.logic;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,12 +10,12 @@ import java.util.Map;
  *
  * @author md
  */
-public class Kirjainyhdistelmat implements Teksti {
+public class Letters implements Text {
 
     private String kirjaimet;
     private Map<Integer, String> toisto;
 
-    public Kirjainyhdistelmat() {
+    public Letters() {
         this.kirjaimet = "";
         this.toisto = new HashMap<>();
     }
@@ -27,11 +27,11 @@ public class Kirjainyhdistelmat implements Teksti {
     }
 
     @Override
-    public void setToisto() {
+    public void setRepetition() {
     }
 
     @Override
-    public int getToisto() {
+    public int getRepetition() {
         return 0;
     }
 
