@@ -5,18 +5,13 @@
  */
 package fi.maaretdufva.gui;
 
-import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
-import static java.awt.GridBagConstraints.RELATIVE;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.LayoutManager;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
