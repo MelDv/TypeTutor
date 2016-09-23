@@ -4,6 +4,8 @@
  */
 package fi.maaretdufva.logiikka;
 
+import fi.maaretdufva.logic.Basic;
+import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.User;
 import org.junit.Before;
 import org.junit.Test;

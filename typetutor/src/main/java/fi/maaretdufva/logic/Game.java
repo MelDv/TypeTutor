@@ -38,4 +38,14 @@ public class Game {
             anvanc.start();
         }
     }
+
+    public char sendToListener() {
+        char typeThis = 'f';
+
+        return typeThis;
+    }
+
+    public void newCharacter() {
+    }
+
 }

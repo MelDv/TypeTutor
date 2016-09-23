@@ -3,6 +3,7 @@
  */
 package fi.maaretdufva.logiikka;
 
+import fi.maaretdufva.logic.Basic;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
