@@ -8,3 +8,6 @@ Päivä | Tunnit | Kuvaus
 17.9.2016 | 2 | Koodailun aloitusta. Mikään ei toiminut Linux-ympäristössä, joten vaihdoin Windowsiin, missä koodini toimi. Sama Netbeansin versio 8.1 käytössä molemmissa.
 18.9.2016 | 7 | Koodaamista: sovelluslogiikkaa hieman, myös käyttistä ja käyttäjäluokkia.
 18.9.2016 | 3 | Pit- ja checkstyle-testien generointia. Pit meni mukavasti, mutta checkstyle ei ottanut toimiakseen ollenkaan. Muutin version pienemmäksi 2.4 niin toimi viimeinkin.
+19.9.2016 | 0.5 | Luokkien uudelleenimentää
+20.9.2016 | 0.5 | Oikean luokkakaavioversion lisääminen
+
