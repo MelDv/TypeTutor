@@ -10,4 +10,5 @@ Päivä | Tunnit | Kuvaus
 18.9.2016 | 3 | Pit- ja checkstyle-testien generointia. Pit meni mukavasti, mutta checkstyle ei ottanut toimiakseen ollenkaan. Muutin version pienemmäksi 2.4 niin toimi viimeinkin.
 19.9.2016 | 0.5 | Luokkien uudelleenimentää
 20.9.2016 | 0.5 | Oikean luokkakaavioversion lisääminen
+20.9.2016 | 5 | Käyttöliittymän luomista ja pelilogiikan korjailua
 
