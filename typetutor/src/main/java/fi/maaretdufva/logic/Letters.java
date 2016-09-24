@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author md
  */
-public class Letters extends Text {
+public class Letters implements Text {
 
     private String letters;
     private Map<Integer, String> repetition;
