@@ -62,13 +62,11 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>fi.maaretdufva.logiikka.*</param>
-                        <param>fi.maaretdufva.gui.*</param>
+                        <param>fi.maaretdufva.logic.*</param>
                         <param>fi.maaretdufva.users.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>fi.maaretdufva.logiikka.*</param>
-                        <param>fi.maaretdufva.gui.*</param>
+                        <param>fi.maaretdufva.logic.*</param>
                         <param>fi.maaretdufva.users.*</param>
                     </targetTests>
                 </configuration>

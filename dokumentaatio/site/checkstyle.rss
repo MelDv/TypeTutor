@@ -46,7 +46,21 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.Kirjainyhdistelmat.java">fi/maaretdufva/logiikka/Kirjainyhdistelmat.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.gui.Listener.java">fi/maaretdufva/gui/Listener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logic.Tutorial.java">fi/maaretdufva/logic/Tutorial.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.Intermediate.java">fi/maaretdufva/logiikka/Intermediate.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.gui.Account.java">fi/maaretdufva/gui/Account.java</a>
                 </td>
                 <td>
                   0
@@ -88,21 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.Teksti.java">fi/maaretdufva/logiikka/Teksti.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.Advanced.java">fi/maaretdufva/logiikka/Advanced.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logic.Level.java">fi/maaretdufva/logic/Level.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.Tasot.java">fi/maaretdufva/logiikka/Tasot.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logic.OnBoarding.java">fi/maaretdufva/logic/OnBoarding.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +158,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.OnBoarding.java">fi/maaretdufva/logiikka/OnBoarding.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logic.Game.java">fi/maaretdufva/logic/Game.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.Basic.java">fi/maaretdufva/logiikka/Basic.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logic.Letters.java">fi/maaretdufva/logic/Letters.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.gui.Tili.java">fi/maaretdufva/gui/Tili.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.gui.Gui.java">fi/maaretdufva/gui/Gui.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logiikka.Game.java">fi/maaretdufva/logiikka/Game.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.gui.GuiComponents.java">fi/maaretdufva/gui/GuiComponents.java</a>
                 </td>
                 <td>
                   0

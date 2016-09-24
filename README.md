@@ -1,4 +1,4 @@
-# TypeTutor
+﻿# TypeTutor
 
 **TypeTutor on java-ohjelma kymmensormijärjestelmän opetteluun.**
 
@@ -11,3 +11,5 @@ TypeTutoria voi käyttää kuka tahansa, joka ei halua enää hukata aikaa kirja
 * [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 * [Käyttöohje](dokumentaatio/käyttöohjeet.md)
 * [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md) 
+* [Checkstyle-raportti]
+* [Pit-raportti](https://htmlpreview.github.io/?file:///C:/Users/Maaret/Typetutor/dokumentaatio/pit/201609242132/index.html)
