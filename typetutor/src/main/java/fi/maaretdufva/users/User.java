@@ -3,6 +3,7 @@
  */
 package fi.maaretdufva.users;
 
+import fi.maaretdufva.logic.Level;
 import java.util.Scanner;
 
 /**
@@ -56,6 +57,12 @@ public class User {
 
     public void setPoints(int newPoints) {
         this.points = newPoints;
+    }
+
+    public int getLevel() {
+        Level l = new Level();
+        int level = l.determineLevel(points);
+        return level;
     }
 
     public String getUsername() {

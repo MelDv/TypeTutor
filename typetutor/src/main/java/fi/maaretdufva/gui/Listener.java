@@ -6,6 +6,8 @@
 package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
+import fi.maaretdufva.logic.Letters;
+import fi.maaretdufva.users.User;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -17,22 +19,23 @@ import java.awt.event.KeyListener;
  */
 public class Listener implements KeyListener {
 
-    private Component component;
     private Game game;
-    private char type;
+    private Component component;
+    private User user;
 
-    public Listener(Game game, Component component) {
-        this.game = game;
+    public Listener(User user, Component component) {
+        this.game = new Game();
+        this.user = user;
         this.component = component;
-        this.type = 'f';
     }
 
     @Override
     public void keyTyped(KeyEvent ke) {
+
         if (ke.getKeyCode() == game.sendToListener()) {
-            game.newCharacter(true);
+            game.addPoint();
         } else {
-            game.newCharacter(false);
+            game.deductPoint();
         }
     }
 

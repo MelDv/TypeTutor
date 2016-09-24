@@ -44,6 +44,11 @@ public class UserTest {
         String syote = "nimi:  , pisteet: 0\n sähköposti: ";
         assertEquals(syote, t.toString());
     }
+    
+    public void getLevelLaskeeLevelinOikein() {
+        t.setPoints(344);
+        assertEquals(t.getLevel(), 3);
+    }
 
     @Test
     public void toStringPalauttaaOikeanSyotteen1() {

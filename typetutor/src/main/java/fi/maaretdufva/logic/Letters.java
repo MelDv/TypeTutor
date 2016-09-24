@@ -11,64 +11,112 @@ import java.util.Random;
  *
  * @author md
  */
-public class Letters implements Text {
+public class Letters {
 
     private String letters;
     private Map<Integer, String> repetition;
 
     public Letters() {
         this.letters = "";
-        this.repetition = new HashMap<>(); 
+        this.repetition = new HashMap<>();
     }
 
-    @Override
     public void setRepetition() {
     }
 
-    @Override
     public int getRepetition() {
         return 0;
     }
 
-    public String determineLetter(int level) {
+    public String determineString(int level) {
         if (level < 1) {
-            this.letters = randomChar("jf");
+            return this.letters = randomString("jf", 3);
         }
         if (level < 2) {
-            this.letters = randomChar("kd");
+            return this.letters = randomString("kd", 3);
         }
         if (level < 3) {
-            this.letters = randomChar("jfkd");
+            return this.letters = randomString("jfkd", 4);
         }
         if (level < 4) {
-            this.letters = randomChar("ls");
+            return this.letters = randomString("ls", 3);
         }
         if (level < 5) {
-            this.letters = randomChar("jfkdls");
+            return this.letters = randomString("jfkdls", 4);
         }
         if (level < 6) {
-            this.letters = randomChar("öa");
+            return this.letters = randomString("öa", 3);
         }
         if (level < 7) {
-            this.letters = randomChar("lsöa");
+            return this.letters = randomString("lsöajf", 0);
         }
         if (level < 8) {
-            this.letters = randomChar("jfkdlsöa");
+            return this.letters = randomString("jfkdlsöa", 0);
         }
+        if (level < 9) {
+            return this.letters = randomString("ru", 3);
+        }
+        if (level < 10) {
+            return this.letters = randomString("jfkdlsöaru", 0);
+        }
+        if (level < 11) {
+            return this.letters = randomString("mv", 3);
+        }
+        if (level < 12) {
+            return this.letters = randomString("urmv", 5);
+        }
+        if (level < 13) {
+            return this.letters = randomWords("jfkdlsöarumv");
+        }
+        if (level < 14) {
+            return this.letters = randomString("iec,", 5);
+        }
+        if (level < 15) {
+            return this.letters = randomString("owx.", 5);
+        }
+        if (level < 16) {
+            return this.letters = randomWords("jfkdlsöarumviecxow,.");
+        }
+        if (level < 17) {
+            return this.letters = randomString("pqz-", 4);
+        }
+        if (level < 18) {
+            return this.letters = randomWords("jfkdlsöarumviecxow,.pqz-");
+        }
+
         return this.letters;
     }
 
-    public String randomChar(String charactersToLearn) {
+    public String randomWords(String letters) {
         String typeThis = "";
         Random r = new Random();
-        int wordLength = r.nextInt(8);
+        //sanoja tietyillä kirjaimilla tiedostosta, listasta tms.
 
-        for (int i = 0; i < wordLength; i++) {
-            char letter = (charactersToLearn.charAt(r.nextInt(charactersToLearn.length())));
-            typeThis = typeThis + letter;
+        return typeThis;
+
+    }
+
+    public String randomString(String charactersToLearn, int numberOfLetters) {
+        // Määrittää kirjoitettavat kirjainyhdistelmät 
+        // kymmenen erillisen sanan Stringinä.
+        Random r = new Random();
+        int wordLength = 0;
+        int numberOfWords = 10;
+        String typeThis = "";
+
+        if (numberOfLetters == 0) {
+            wordLength = r.nextInt(3) + 6;
+        } else {
+            wordLength = numberOfLetters;
         }
-        typeThis = typeThis + " ";
 
+        for (int i = 0; i < numberOfWords; i++) {
+            for (int j = 0; j < wordLength; j++) {
+                char letter = (charactersToLearn.charAt(r.nextInt(charactersToLearn.length())));
+                typeThis = typeThis + letter;
+            }
+            typeThis = typeThis + " ";
+        }
         return typeThis;
     }
 }
