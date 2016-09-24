@@ -18,7 +18,7 @@ public class User {
     private String sukunimi;
     private String email;
     private String salasana;
-    private String opitutKirjaimet;
+    private int pisteet;
 
     public User(String kayttajanimi) {
         this.kayttajanimi = kayttajanimi;
@@ -27,7 +27,7 @@ public class User {
         this.sukunimi = "";
         this.email = "";
         this.salasana = "1234";
-        this.opitutKirjaimet = "";
+        this.pisteet = 0;
         testaaKayttajanimi(kayttajanimi);
     }
 
@@ -71,8 +71,8 @@ public class User {
         this.salasana = salasana;
     }
 
-    public void setOpitutKirjaimet(String opitutKirjaimet) {
-        this.opitutKirjaimet = opitutKirjaimet;
+    public void setPisteet(int pisteet) {
+        this.pisteet = pisteet;
     }
 
     public int getLevel() {
@@ -95,8 +95,8 @@ public class User {
         return email;
     }
 
-    public String getOpitutKirjaimet() {
-        return opitutKirjaimet;
+    public int getPoints() {
+        return this.pisteet;
     }
 
     public boolean testaaSalasana(String testattava) {

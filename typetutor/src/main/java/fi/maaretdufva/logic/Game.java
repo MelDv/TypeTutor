@@ -15,7 +15,7 @@ public class Game {
     private User kayttaja;
 
     public Game(User user) {
-        this.kayttaja = user; //tämä luokka palauttaa käyttäjän kehityksen.
+        this.kayttaja = user; //palauttaa käyttäjän kehityksen.
         this.aloita = new OnBoarding();
     }
 
@@ -27,16 +27,6 @@ public class Game {
         if (kayttaja == null || level < 1) {
             aloita.start();
         }
-        if (level < 6) {
-            Basic basic = new Basic(kayttaja.getLevel());
-            basic.start();
-        } else if (level < 16) {
-            Intermediate interm = new Intermediate(kayttaja.getLevel());
-            interm.start();
-        } else {
-            Advanced anvanc = new Advanced(kayttaja.getLevel());
-            anvanc.start();
-        }
     }
 
     public char sendToListener() {
@@ -45,7 +35,10 @@ public class Game {
         return typeThis;
     }
 
-    public void newCharacter() {
+    public void newCharacter(boolean piste) {
+        if (piste) {
+            
+        }
     }
 
 }

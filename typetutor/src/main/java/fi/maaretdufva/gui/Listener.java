@@ -30,7 +30,9 @@ public class Listener implements KeyListener {
     @Override
     public void keyTyped(KeyEvent ke) {
         if (ke.getKeyCode() == game.sendToListener()) {
-            game.newCharacter();
+            game.newCharacter(true);
+        } else {
+            game.newCharacter(false);
         }
     }
 

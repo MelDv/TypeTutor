@@ -4,7 +4,7 @@
  */
 package fi.maaretdufva.logiikka;
 
-import fi.maaretdufva.logic.Basic;
+import fi.maaretdufva.logic.Level;
 import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.User;
 import org.junit.Before;
@@ -15,13 +15,13 @@ public class GameTest {
 
     static Game g;
     static User u;
-    static Basic b;
+    static Level b;
 
     @Before
     public void setUp() {
         u = new User("nimi");
         g = new Game(u);
-        b = new Basic(0);
+        b = new Level();
     }
 
     @Test
