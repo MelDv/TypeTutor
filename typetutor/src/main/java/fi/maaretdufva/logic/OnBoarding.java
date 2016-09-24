@@ -14,10 +14,10 @@ public class OnBoarding {
     // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
     public void start() {
         // visual instructions, video and guides
-        FirstExercise();
+        firstExercise();
     }
 
-    public static void FirstExercise() {
+    public static void firstExercise() {
         // alkupeli, jossa kirjoitetaan esim. "auta auto alamäkeen"
     }
 

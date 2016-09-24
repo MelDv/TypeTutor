@@ -24,7 +24,7 @@ public class Listener implements KeyListener {
     public Listener(Game game, Component component) {
         this.game = game;
         this.component = component;
-        this.type='f';
+        this.type = 'f';
     }
 
     @Override
