@@ -9,9 +9,9 @@ import java.util.Map;
  *
  * @author md
  */
-public interface Text {
+public abstract class Text {
 
-    void setRepetition();
+    public abstract void setRepetition();
 
-    int getRepetition();
+    public abstract int getRepetition();
 }

@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * @author md
  */
-public class Letters implements Text {
+public class Letters extends Text {
 
     private String kirjaimet;
     private Map<Integer, String> toisto;
