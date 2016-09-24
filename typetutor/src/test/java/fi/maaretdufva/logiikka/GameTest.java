@@ -24,22 +24,6 @@ public class GameTest {
         b = new Level();
     }
 
-    @Test
-    public void start() {
-        assertEquals(u.getLevel(), 0);
-    }
 
-    @Test
-    public void start2() {
-        u.setLevel(2);
-        assertEquals(u.getLevel(), 2);
-    }
-
-    @Test
-    public void startToiminto() {
-        if (u.getLevel() < 0) {
-            fail();
-        }
-    }
 
 }

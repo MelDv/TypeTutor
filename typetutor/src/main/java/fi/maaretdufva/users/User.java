@@ -12,83 +12,62 @@ import java.util.Scanner;
 public class User {
 
     // TÄMÄ ON LÄHES VALMIS LUOKKA. TARKASTA KAIKKI!
-    private int level;
-    private String kayttajanimi;
-    private String etunimi;
-    private String sukunimi;
+    private String username;
+    private String firstname;
+    private String lastname;
     private String email;
-    private String salasana;
-    private int pisteet;
+    private String password;
+    private int points;
 
-    public User(String kayttajanimi) {
-        this.kayttajanimi = kayttajanimi;
-        this.level = 0;
-        this.etunimi = "";
-        this.sukunimi = "";
+    public User(String username) {
+        this.username = username;
+        this.firstname = "";
+        this.lastname = "";
         this.email = "";
-        this.salasana = "1234";
-        this.pisteet = 0;
-        testaaKayttajanimi(kayttajanimi);
+        this.password = "1234";
+        this.points = 0;
     }
 
-    public void setAll(String etunimi, String sukunimi, String email, String salasana) {
-        // Ei tarvita konstruktoria, joka asettaisi kaikki, koska aina asetetaan
-        // ensin käyttäjänimi.
-        this.etunimi = etunimi;
-        this.sukunimi = sukunimi;
+    public void setAll(String firtsname, String lastname, String email) {
+        this.firstname = firtsname;
+        this.lastname = lastname;
         this.email = email;
-        this.salasana = salasana;
     }
 
-    public boolean etsiKayttajanimi(String kayttis) {
-        if (this.kayttajanimi.equals(kayttis)) {
-            return true;
-        }
-        return false;
+    public void setEtunimi(String newFirstname) {
+        this.firstname = newFirstname;
     }
 
-    public void setEtunimi(String etunimi) {
-        this.etunimi = etunimi;
+    public void setUsername(String newName) {
+        this.username = newName;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public void setKayttajanimi(String kayttajanimi) {
-        this.kayttajanimi = kayttajanimi;
-    }
-
-    public void setSukunimi(String sukunimi) {
-        this.sukunimi = sukunimi;
+    public void setSukunimi(String newLastname) {
+        this.lastname = newLastname;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setSalasana(String salasana) {
-        this.salasana = salasana;
+    public void setPassword(String newPassword) {
+        this.password = newPassword;
     }
 
-    public void setPisteet(int pisteet) {
-        this.pisteet = pisteet;
+    public void setPoints(int newPoints) {
+        this.points = newPoints;
     }
 
-    public int getLevel() {
-        return this.level;
+    public String getUsername() {
+        return this.username;
     }
 
-    public String getKayttajanimi() {
-        return this.kayttajanimi;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getEtunimi() {
-        return etunimi;
-    }
-
-    public String getSukunimi() {
-        return sukunimi;
+    public String getLastname() {
+        return lastname;
     }
 
     public String getEmail() {
@@ -96,33 +75,19 @@ public class User {
     }
 
     public int getPoints() {
-        return this.pisteet;
+        return this.points;
     }
 
-    public boolean testaaSalasana(String testattava) {
-        if (this.salasana.equals(testattava)) {
+    public boolean testPassword(String testThis) {
+        if (this.password.equals(testThis)) {
             return true;
         }
         return false;
-    }
-
-    public boolean testaaNull(String syote) {
-        if (syote == null) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean testaaKayttajanimi(String kayttajanimi) {
-        if (kayttajanimi.equals("lopeta") || kayttajanimi.equals("jatka")) {
-            return false;
-        }
-        return true;
     }
 
     @Override
     public String toString() {
-        return this.kayttajanimi + ": " + this.etunimi + " "
-                + this.sukunimi + ", taso: " + this.level + "\n sähköposti: " + this.email;
+        return this.username + ": " + this.firstname + " "
+                + this.lastname + ", pisteet: " + this.points + "\n sähköposti: " + this.email;
     }
 }

@@ -9,23 +9,21 @@ import fi.maaretdufva.users.User;
 public class Game {
 
     //TÄMÄ ON KESKENERÄINEN LUOKKA.
-    private OnBoarding aloita;
-    private String opitutKirjaimet;
-    private String opittavatKirjaimet;
-    private User kayttaja;
+    private OnBoarding begin;
+    private Level level;
+    private User user;
 
     public Game(User user) {
-        this.kayttaja = user; //palauttaa käyttäjän kehityksen.
-        this.aloita = new OnBoarding();
+        this.user = user;
     }
 
     public Game() {
     }
 
     public void start() {
-        int level = kayttaja.getLevel();
-        if (kayttaja == null || level < 1) {
-            aloita.start();
+        int points = user.getPoints();
+        if (user == null || user.getPoints() == 0) {
+            begin.start();
         }
     }
 

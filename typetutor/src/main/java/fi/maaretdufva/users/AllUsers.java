@@ -19,7 +19,7 @@ public class AllUsers {
     public AllUsers(User lisattava) {
         this.user = lisattava;
         this.all = new HashMap<>();
-        this.all.put(lisattava.getKayttajanimi(), lisattava);
+        this.all.put(lisattava.getUsername(), lisattava);
     }
 
     public AllUsers() {
@@ -37,7 +37,7 @@ public class AllUsers {
     }
 
     public void addKayttaja(User lisattava) {
-        this.all.put(lisattava.getKayttajanimi(), lisattava);
+        this.all.put(lisattava.getUsername(), lisattava);
     }
 
     public boolean findUser(String kayttajanimi) {
@@ -55,7 +55,7 @@ public class AllUsers {
             addKayttaja(kayttaja);
         }
         this.all.remove(vanhaKayttajatunnus);
-        this.all.put(kayttaja.getKayttajanimi(), kayttaja);
+        this.all.put(kayttaja.getUsername(), kayttaja);
     }
 
     @Override

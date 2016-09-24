@@ -58,7 +58,7 @@ public class Account {
             if (kaikki.findUser(tunnus)) {
                 System.out.println("Tunnus on jo käytössä.");
             } else {
-                user.setKayttajanimi(tunnus);
+                user.setUsername(tunnus);
                 System.out.println("Tervetuloa käyttäjäksi, " + tunnus + "!");
                 break;
             }
@@ -69,7 +69,7 @@ public class Account {
     public void tarkastaSalasana() {
         System.out.println("Kirjoita salasana: ");
         String salasana = lukija.nextLine();
-        if (user.testaaSalasana(salasana)) {
+        if (user.testPassword(salasana)) {
             return;
         } else {
             System.out.println("Kirjoitit väärän salasanan. Kirjoita salasana uudelleen"

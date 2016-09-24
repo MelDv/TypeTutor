@@ -22,12 +22,26 @@ public class UserTest {
 
     @Test
     public void konstruktoriAsettaaKayttajatunnuksen() {
-        assertEquals(t.getKayttajanimi(), "nimi");
+        assertEquals(t.getUsername(), "nimi");
+    }
+    
+    public void setAllAsettaaTiedot() {
+        t.setAll("Elli", "Etana", "etana@posti.fi");
+        assertEquals(t.getFirstname(), "Elli");
+        assertEquals(t.getLastname(), "Etana");
+        assertEquals(t.getEmail(), "etana@posti.fi");
+    }
+    
+    public void testPassword() {
+        t.setPassword("ji874kjlKKiirt9");
+        assertEquals(t.testPassword("ji874kjlKKiirt9"), true);
+        t.setPassword("ji874kjlKKiirt9");
+        assertEquals(t.testPassword("ji874kjlKiirt9"), false);
     }
 
     @Test
     public void toStringPalauttaaOikeanSyotteen() {
-        String syote = "nimi:  , taso: 0\n sähköposti: ";
+        String syote = "nimi:  , pisteet: 0\n sähköposti: ";
         assertEquals(syote, t.toString());
     }
 
@@ -35,9 +49,9 @@ public class UserTest {
     public void toStringPalauttaaOikeanSyotteen1() {
         t.setEtunimi("Ville");
         t.setSukunimi("Virta");
-        t.setLevel(7);
+        t.setPoints(7);
         t.setEmail("juu@huu.fi");
-        String syote = "nimi: Ville Virta, taso: 7\n sähköposti: juu@huu.fi";
+        String syote = "nimi: Ville Virta, pisteet: 7\n sähköposti: juu@huu.fi";
         assertEquals(syote, t.toString());
     }
 }

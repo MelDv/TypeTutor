@@ -15,10 +15,15 @@ public class OnBoarding {
     public void start() {
         // visual instructions, video and guides
         firstExercise();
+        secondExercise();
     }
 
     public static void firstExercise() {
-        // alkupeli, jossa kirjoitetaan esim. "auta auto alamäkeen"
+        // alkupeli, jossa kirjoitetaan helppo fraasi, tarkoituksena oppia käyttämään peliä
+    }
+
+    private void secondExercise() {
+        // kertaus jos käyttäjä haluaa
     }
 
 }
