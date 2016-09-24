@@ -24,14 +24,14 @@ public class UserTest {
     public void konstruktoriAsettaaKayttajatunnuksen() {
         assertEquals(t.getUsername(), "nimi");
     }
-    
+
     public void setAllAsettaaTiedot() {
         t.setAll("Elli", "Etana", "etana@posti.fi");
         assertEquals(t.getFirstname(), "Elli");
         assertEquals(t.getLastname(), "Etana");
         assertEquals(t.getEmail(), "etana@posti.fi");
     }
-    
+
     public void testPassword() {
         t.setPassword("ji874kjlKKiirt9");
         assertEquals(t.testPassword("ji874kjlKKiirt9"), true);
@@ -44,7 +44,7 @@ public class UserTest {
         String syote = "nimi:  , pisteet: 0\n sähköposti: ";
         assertEquals(syote, t.toString());
     }
-    
+
     public void getLevelLaskeeLevelinOikein() {
         t.setPoints(344);
         assertEquals(t.getLevel(), 3);

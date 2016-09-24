@@ -10,17 +10,18 @@ package fi.maaretdufva.logic;
  * @author Maaret
  */
 public class Tutorial {
-    //Opastekstit kutakin kirjainta varten
+    //Opastetekstit tai kuvat kutakin kirjainta varten. Tulossa.
 
     public Tutorial() {
     }
 
     public void handPosture() {
+        System.out.println("Käet näppäimistölle");
     }
 
     public void letterTutorials(int level) {
         if (level == 1) {
-            // jfj fjf jff jjf 
+            System.out.println("Kirjoot äffää ja jiitä");
         }
     }
 

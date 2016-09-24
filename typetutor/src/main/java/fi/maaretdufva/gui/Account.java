@@ -101,7 +101,7 @@ public class Account {
 
     private void luoSalasana() {
         // EI VALMIS!
-        //this.kaikki.addKayttaja(user);
+        //this.kaikki.addUser(user);
     }
 
     private void annaTiedot() {

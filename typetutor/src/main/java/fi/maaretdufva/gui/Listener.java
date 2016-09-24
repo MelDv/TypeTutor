@@ -31,7 +31,6 @@ public class Listener implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent ke) {
-
         if (ke.getKeyCode() == game.sendToListener()) {
             game.addPoint();
         } else {

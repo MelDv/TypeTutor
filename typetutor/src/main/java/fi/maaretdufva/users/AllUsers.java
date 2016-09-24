@@ -12,14 +12,13 @@ import java.util.Map;
  */
 public class AllUsers {
 
-    // TÄMÄ ON LÄHES VALMIS LUOKKA. TARKASTA KAIKKI!
     private User user;
     private Map<String, User> all;
 
-    public AllUsers(User lisattava) {
-        this.user = lisattava;
+    public AllUsers(User user) {
+        this.user = user;
         this.all = new HashMap<>();
-        this.all.put(lisattava.getUsername(), lisattava);
+        this.all.put(user.getUsername(), user);
     }
 
     public AllUsers() {
@@ -29,33 +28,41 @@ public class AllUsers {
         return this.all;
     }
 
-    public User getUser(String kayttajanimi) {
-        if (all.containsKey(kayttajanimi)) {
-            return all.get(kayttajanimi);
+    public User getUser(String username) {
+        if (all.containsKey(username)) {
+            return all.get(username);
         }
         return null;
     }
 
-    public void addKayttaja(User lisattava) {
-        this.all.put(lisattava.getUsername(), lisattava);
+    public void addUser(User addThis) {
+        this.all.put(addThis.getUsername(), addThis);
     }
 
-    public boolean findUser(String kayttajanimi) {
+    public void deleteUser(User deleteMe) {
+        this.all.remove(deleteMe);
+    }
+
+    public boolean findUser(String username) {
         if (this.all == null) {
             return false;
         }
-        if (this.all.containsKey(kayttajanimi)) {
+        if (this.all.containsKey(username)) {
             return true;
         }
         return false;
     }
 
-    public void paivitaKayttaja(String vanhaKayttajatunnus, User kayttaja) {
-        if (!this.all.containsKey(vanhaKayttajatunnus)) {
-            addKayttaja(kayttaja);
+    public void updateUser(String oldUsername, User user) {
+        if (!this.all.containsKey(oldUsername)) {
+            addUser(user);
         }
-        this.all.remove(vanhaKayttajatunnus);
-        this.all.put(kayttaja.getUsername(), kayttaja);
+        this.all.remove(oldUsername);
+        this.all.put(user.getUsername(), user);
+    }
+
+    public int numberOfUsers() {
+        return this.all.size();
     }
 
     @Override

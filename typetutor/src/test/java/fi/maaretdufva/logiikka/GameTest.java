@@ -15,15 +15,34 @@ public class GameTest {
 
     static Game g;
     static User u;
-    static Level b;
+    static String s;
 
     @Before
     public void setUp() {
         u = new User("nimi");
         g = new Game(u);
-        b = new Level();
+        s = "Testaus";
     }
 
+    @Test
+    public void addPointAddsPoint() {
+        u.setPoints(8);
+        g.addPoint();
+        g.addPoint();
+        assertEquals(10, u.getPoints());
+        g.addPoint();
+        g.addPoint();
+        g.addPoint();
+        assertEquals(13, u.getPoints());
+    }
 
-
+    @Test
+    public void deductPointDeductsPoint() {
+        u.setPoints(8);
+        g.deductPoint();
+        g.deductPoint();
+        assertEquals(6, u.getPoints());
+        g.deductPoint();
+        assertEquals(5, u.getPoints());
+    }
 }

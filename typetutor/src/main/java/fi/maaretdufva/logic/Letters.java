@@ -24,7 +24,7 @@ public class Letters {
     public void setRepetition() {
     }
 
-    public int getRepetition() {
+    public int getRepetition(String sana) {
         return 0;
     }
 
