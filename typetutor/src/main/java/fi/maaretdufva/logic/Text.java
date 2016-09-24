@@ -10,7 +10,8 @@ import java.util.Map;
  * @author md
  */
 public interface Text {
-    
-    public void setRepetition();
-    public int getRepetition();
+
+    void setRepetition();
+
+    int getRepetition();
 }
