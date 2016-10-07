@@ -1,41 +1,54 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is the action listener class. It listens to user input and updates the window.
  */
 package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
-import fi.maaretdufva.logic.Letters;
 import fi.maaretdufva.users.User;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import static java.awt.event.KeyEvent.VK_ENTER;
 import java.awt.event.KeyListener;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 /**
  *
- * @author Maaret Dufva
+ * @author Maaret
  */
 public class Listener implements KeyListener {
 
+    private JTextArea writingArea;
+    private JLabel text;
+    private JLabel points;
+    private JLabel level;
     private Game game;
-    private Component component;
     private User user;
+    private Gui gui;
 
-    public Listener(User user, Component component) {
-        this.game = new Game();
+    Listener(User user, JTextArea writingArea, JLabel text, JLabel points, JLabel level) {
+        this.writingArea = writingArea;
+        this.text = text;
         this.user = user;
-        this.component = component;
+        this.game = new Game(user);
+        this.gui = new Gui();
+        this.points = points;
+        this.level = level;
     }
 
     @Override
     public void keyTyped(KeyEvent ke) {
-        if (ke.getKeyCode() == game.sendToListener()) {
-            game.addPoint();
+        if (ke.getKeyCode() == 10) {
+            System.out.println("");
+        } else if (ke.getKeyChar() == game.sendToListener()) {
+            user.addPoint();
         } else {
-            game.deductPoint();
+            user.deductPoint();
         }
+
+        points.setText(String.valueOf(user.getPoints()));
+        level.setText(String.valueOf(user.getLevel()));
+        text.setText(game.getTypeThis());
+        writingArea.setText("");
     }
 
     @Override
@@ -46,4 +59,7 @@ public class Listener implements KeyListener {
     public void keyReleased(KeyEvent ke) {
     }
 
+    public int returnPoints() {
+        return user.getPoints();
+    }
 }

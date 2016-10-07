@@ -1,24 +1,23 @@
 /*
- * This is the main class for users.
+ * This is the main class for individual users.
  */
 package fi.maaretdufva.users;
 
-import fi.maaretdufva.logic.Level;
 import java.util.Scanner;
 
 /**
  *
- * @author Maaret Dufva
+ * @author Maaret
  */
 public class User {
 
-    // TÄMÄ ON LÄHES VALMIS LUOKKA. TARKASTA KAIKKI!
     private String username;
     private String firstname;
     private String lastname;
     private String email;
     private String password;
     private int points;
+    private int level;
 
     public User(String username) {
         this.username = username;
@@ -27,6 +26,7 @@ public class User {
         this.email = "";
         this.password = "1234";
         this.points = 0;
+        this.level = 0;
     }
 
     public void setAll(String firtsname, String lastname, String email) {
@@ -59,9 +59,20 @@ public class User {
         this.points = newPoints;
     }
 
+    public void addPoint() {
+        setPoints(getPoints() + 1);
+    }
+
+    public void deductPoint() {
+        setPoints(getPoints() - 1);
+    }
+
     public int getLevel() {
-        Level l = new Level();
-        int level = l.determineLevel(points);
+        if (points < 200) {
+            level = 0;
+        } else {
+            level = points / 200;
+        }
         return level;
     }
 

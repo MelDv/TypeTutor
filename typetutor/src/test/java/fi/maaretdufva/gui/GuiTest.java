@@ -12,5 +12,11 @@ import static org.junit.Assert.*;
  * @author Maaret Dufva
  */
 public class GuiTest {
-    // 
+
+    static Gui gui;
+
+    @Before
+    public void setUp() {
+        gui = new Gui();
+    }
 }

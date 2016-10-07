@@ -1,5 +1,5 @@
 /*
- * Tämä luokka muistaa kaikki rekisteröityneet käyttäjät.
+ * This class remembers all users.
  */
 package fi.maaretdufva.users;
 
@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  *
- * @author Maaret Dufva
+ * @author Maaret
  */
 public class AllUsers {
 
@@ -67,11 +67,13 @@ public class AllUsers {
 
     @Override
     public String toString() {
-        StringBuilder userlist = null;
+        StringBuilder userlist = new StringBuilder();
+        if (all.isEmpty()) {
+            return "This user list is empty";
+        }
 
         for (int i = 0; i < all.size(); i++) {
-            userlist.append("\n");
-            userlist.append(user.toString());
+            userlist.append(user.toString() + "\n");
         }
         return userlist.toString();
     }

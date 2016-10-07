@@ -1,18 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is the most important class for the graphical user interface.
+ * It creates the frames and defines where each segment goes.
  */
 package fi.maaretdufva.gui;
 
+import fi.maaretdufva.logic.Game;
+import fi.maaretdufva.users.User;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 /**
@@ -29,7 +31,7 @@ public class Gui implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("TypeTutor");
-        frame.setPreferredSize(new Dimension(1000, 700));
+        frame.setPreferredSize(new Dimension(450, 250));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,47 +41,97 @@ public class Gui implements Runnable {
         frame.setVisible(true);
     }
 
-    private void createComponents(Container pane) {
-        JButton button;
-        pane.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
+    private void createComponents(Container container) {
+        User user = new User("TestUser");
+        Game game = new Game(user);
+        
+        
+        // Creates the buttons and areas
+        JButton register = new JButton("Register");
+        register.addActionListener(new RegisterListener());
 
-        button = new JButton("Rekisteröidy");
-        c.weightx = 0.1;
-        c.gridx = 0;
-        c.gridy = 0;
-        pane.add(button, c);
+        JButton login = new JButton("Login");
+        JButton test = new JButton("Test");
 
-        button = new JButton("Kirjaudu");
-        c.gridx = 1;
-        c.gridy = 0;
-        pane.add(button, c);
+        JLabel text = new JLabel(game.getTypeThis());
+        text.setText(game.getTypeThis());
 
-        button = new JButton("Kokeile kirjautumatta");
-        c.gridx = 3;
-        c.gridy = 0;
-        pane.add(button, c);
+        JLabel basicGuide = new JLabel("Type the text below using ten fingers.");
+        container.add(basicGuide);
 
-        JLabel basicGuide = new JLabel("Kirjoita ruutuun tuleva teksti kymmensormijärjestelmällä.");
-        c.gridx = 0;
-        c.gridy = 1;
-        pane.add(basicGuide, c);
+        JTextArea writingArea = new JTextArea(6, 32);
+        writingArea.setEditable(true);
+        container.add(writingArea);
+        writingArea.setText("Press enter to start");
 
-        JLabel text = new JLabel("Kirjoita tämä");
-        c.gridx = 0;
-        c.gridy = 5;
-        pane.add(text, c);
+        JLabel pointsLabel = new JLabel(" Points");
+        container.add(pointsLabel);
 
-        JTextField writeThis = new JTextField("Kirjoita tähän");
-        c.gridx = 0;
-        c.gridy = 6;
-        writeThis.setEditable(true);
-        pane.add(writeThis, c);
+        JLabel points = new JLabel("0");
+        container.add(points);
+
+        JLabel levelLabel = new JLabel(" Level");
+        container.add(levelLabel);
+
+        JLabel level = new JLabel("0");
+        container.add(level);
+
+        Listener typedLetter = new Listener(user, writingArea, text, points, level);
+        writingArea.addKeyListener(typedLetter);
+
+        //Layout: first horizontal, then vertical. 
+        writingArea.setBorder(BorderFactory.createEmptyBorder(2, 1, 1, 1));
+
+        GroupLayout layout = new GroupLayout(container);
+        container.setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
+
+        layout.setHorizontalGroup(layout.createSequentialGroup()
+                .addComponent(register)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                        .addComponent(login)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(basicGuide)
+                                .addComponent(text, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(writingArea, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(test, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(pointsLabel)
+                                        .addComponent(points))
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(levelLabel)
+                                        .addComponent(level))))
+        );
+
+        layout.linkSize(SwingConstants.HORIZONTAL, register, login, test);
+
+        layout.setVerticalGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(register)
+                        .addComponent(login)
+                        .addComponent(test))
+                .addGroup(layout.createSequentialGroup()
+                        .addComponent(basicGuide)
+                        .addComponent(text)
+                        .addComponent(writingArea))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(pointsLabel)
+                                .addComponent(points))
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(levelLabel)
+                                .addComponent(level)))
+        );
+
+        frame.setTitle("TypeTutor");
+        frame.pack();
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     public JFrame getFrame() {
         return frame;
     }
-
 }

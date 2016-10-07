@@ -1,5 +1,5 @@
 /*
- * Tämä luokka luo satunnaiset kirjainyhdistelmät kirjainten harjoitteluun.
+ * This class creates random strings for practicing
  */
 package fi.maaretdufva.logic;
 
@@ -90,18 +90,16 @@ public class Letters {
     public String randomWords(String letters) {
         String typeThis = "";
         Random r = new Random();
-        //sanoja tietyillä kirjaimilla tiedostosta, listasta tms.
+        //words with certain letters from a file or list
 
         return typeThis;
 
     }
 
     public String randomString(String charactersToLearn, int numberOfLetters) {
-        // Määrittää kirjoitettavat kirjainyhdistelmät 
-        // kymmenen erillisen sanan Stringinä.
+
         Random r = new Random();
         int wordLength = 0;
-        int numberOfWords = 10;
         String typeThis = "";
 
         if (numberOfLetters == 0) {
@@ -110,12 +108,14 @@ public class Letters {
             wordLength = numberOfLetters;
         }
 
-        for (int i = 0; i < numberOfWords; i++) {
+        for (int i = 0; i < 10; i++) {
             for (int j = 0; j < wordLength; j++) {
                 char letter = (charactersToLearn.charAt(r.nextInt(charactersToLearn.length())));
                 typeThis = typeThis + letter;
             }
-            typeThis = typeThis + " ";
+            if (i < 9) {
+                typeThis = typeThis + " ";
+            }
         }
         return typeThis;
     }

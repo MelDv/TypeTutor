@@ -1,11 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is a test class to be used without the gui.
  */
 package fi.maaretdufva.gui;
 
-import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.AllUsers;
 import fi.maaretdufva.users.User;
 import java.util.Scanner;
@@ -15,97 +12,96 @@ import java.util.Scanner;
  * @author Maaret
  */
 public class Account {
-    
-    // TÄMÄ ON KESKENERÄINEN LUOKKA! TARKISTA KAIKKI METODIT!
 
-    private Scanner lukija;
+    // this is a test class.
+    private Scanner reader;
     private User user;
-    private AllUsers kaikki;
+    private AllUsers all;
 
     public Account() {
-        this.lukija = new Scanner(System.in);
-        this.user = new User("Jaska"); //poista Jaska, kun testaus valmis
-        this.kaikki = new AllUsers();
+        this.reader = new Scanner(System.in);
+        this.user = new User("Jaska");
+        this.all = new AllUsers();
     }
 
     public User aloita() {
         while (true) {
-            System.out.println("Voit tutustua ohjelmaan komennolla 'jatka' "
-                    + "tai kirjautua kirjoittamalla käyttäjätunnuksesi.\n"
-                    + "Jos haluat luoda käyttäjätilin, paina enter");
-            String teksti = lukija.nextLine();
+            System.out.println("Give TypeTutor a try by typing 'continue' "
+                    + "or login with your username.\n"
+                    + "If you want to create an account, press enter");
+            String text = reader.nextLine();
 
-            if (teksti.equals("jatka")) {
+            if (text.equals("continue")) {
                 return user;
-            } else if (teksti.isEmpty()) {
-                luoTunnus();
+            } else if (text.isEmpty()) {
+                createUsername();
                 break;
-            } else if (kaikki.findUser(teksti)) {
-                System.out.println("Tervetuloa takaisin, " + teksti);
-                tarkastaSalasana();
+            } else if (all.findUser(text)) {
+                System.out.println("Welcome back, " + text);
+                checkPassword();
                 break;
-            } // lisää kohta jossa käyttäjää ei löydy
+            }
 
         }
         return user;
 
     }
 
-    public void luoTunnus() {
+    public void createUsername() {
         while (true) {
-            System.out.println("Anna käyttäjätunnus.");
-            String tunnus = lukija.nextLine();
-            if (kaikki.findUser(tunnus)) {
-                System.out.println("Tunnus on jo käytössä.");
+            System.out.println("Write your username.");
+            String username = reader.nextLine();
+            if (all.findUser(username)) {
+                System.out.println("The username is already in use.");
             } else {
-                user.setUsername(tunnus);
-                System.out.println("Tervetuloa käyttäjäksi, " + tunnus + "!");
+                user.setUsername(username);
+                System.out.println("Welcome, " + username + "!");
                 break;
             }
         }
-        annaTiedot();
+        giveInfo();
     }
 
-    public void tarkastaSalasana() {
-        System.out.println("Kirjoita salasana: ");
-        String salasana = lukija.nextLine();
-        if (user.testPassword(salasana)) {
+    public void checkPassword() {
+        System.out.println("Type your password: ");
+        String password = reader.nextLine();
+        if (user.testPassword(password)) {
             return;
         } else {
-            System.out.println("Kirjoitit väärän salasanan. Kirjoita salasana uudelleen"
-                    + "tai palaa alkuun painamalla enter.");
+            System.out.println("Wrong password. Retype your password "
+                    + "or go back to the beginning by pressing enter.");
         }
     }
 
-    public void promptLuoTili() {
-        System.out.println("Voit jatkaa harjoittelua luomalla käyttäjätunnuksen "
-                + "tai kirjautumalla käyttäjätilillesi. Kirjoita käyttäjänimi"
-                + "tai lopeta painamalla enter.");
-        String vastaus = lukija.nextLine();
-        if (vastaus.isEmpty()) {
-            System.out.println("Jos haluat harjoitella uudelleen, paina K, muuten enter.");
-            String uusiVastaus = lukija.nextLine();
-            if (uusiVastaus.isEmpty()) {
-                System.out.println("Tervetuloa uudelleen!");
+    public void promptCreateAccount() {
+        System.out.println("You can continue by registering as a user "
+                + "or loging in. Pleasy type your username "
+                + "or quit by pressing enter.");
+        String answer = reader.nextLine();
+        if (answer.isEmpty()) {
+            System.out.println("If you want to practice again, press K, or press enter.");
+            String newAnswer = reader.nextLine();
+            if (newAnswer.isEmpty()) {
+                System.out.println("Wellcome back soon!");
                 return;
             }
         }
     }
 
-    public boolean tyhjaSyote(String syote) {
+    public boolean emptyInput(String syote) {
         if (syote.isEmpty()) {
             return true;
         }
         return false;
     }
 
-    private void luoSalasana() {
-        // EI VALMIS!
-        //this.kaikki.addUser(user);
+    private void createPassword() {
+        // Obviously not finished
+        //this.all.addUser(user);
     }
 
-    private void annaTiedot() {
-        // EI VALMIS!!
-        //luoSalasana();
+    private void giveInfo() {
+        // not finished
+        //createPassword();
     }
 }
