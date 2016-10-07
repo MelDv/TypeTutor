@@ -12,5 +12,6 @@ Päivä | Tunnit | Kuvaus
 23.9.2016 | 0.5 | Oikean luokkakaavioversion lisääminen
 23.9.2016 | 5 | Käyttöliittymän luomista ja pelilogiikan korjailua
 24.9.2016 | 6 | Logiikkaluokkien rakentelua, testien luomista, testien generointi ja dokumentaation päivitys
+7.10.2016 | 10 | Käyttöliittymä kokonaan uusiksi, ohjelma toimintakuntoon.
 
 
