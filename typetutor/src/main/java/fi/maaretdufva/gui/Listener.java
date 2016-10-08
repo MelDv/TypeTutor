@@ -18,19 +18,17 @@ import javax.swing.JTextArea;
 public class Listener implements KeyListener {
 
     private JTextArea writingArea;
-    private JLabel text;
+    private JTextArea text;
     private JLabel points;
     private JLabel level;
     private Game game;
     private User user;
-    private Gui gui;
 
-    Listener(User user, JTextArea writingArea, JLabel text, JLabel points, JLabel level) {
+    Listener(User user, JTextArea writingArea, JTextArea text, JLabel points, JLabel level) {
         this.writingArea = writingArea;
         this.text = text;
         this.user = user;
         this.game = new Game(user);
-        this.gui = new Gui();
         this.points = points;
         this.level = level;
     }
@@ -45,8 +43,9 @@ public class Listener implements KeyListener {
 
         points.setText(String.valueOf(user.getPoints()));
         level.setText(String.valueOf(user.getLevel()));
-        text.setText(game.getTypeThis());
         writingArea.setText("");
+        text.setText(game.getTypeThis());
+        
     }
 
     @Override

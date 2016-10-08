@@ -97,7 +97,7 @@ public class Letters {
     }
 
     public String randomString(String charactersToLearn, int numberOfLetters) {
-
+        int numberOfWords = 20;
         Random r = new Random();
         int wordLength = 0;
         String typeThis = "";
@@ -108,12 +108,12 @@ public class Letters {
             wordLength = numberOfLetters;
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < numberOfWords; i++) {
             for (int j = 0; j < wordLength; j++) {
                 char letter = (charactersToLearn.charAt(r.nextInt(charactersToLearn.length())));
                 typeThis = typeThis + letter;
             }
-            if (i < 9) {
+            if (i < (numberOfWords - 1)) {
                 typeThis = typeThis + " ";
             }
         }
