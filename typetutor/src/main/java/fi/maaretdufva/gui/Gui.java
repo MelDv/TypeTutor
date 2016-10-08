@@ -110,7 +110,7 @@ public class Gui implements Runnable {
         );
 
         layout.linkSize(SwingConstants.HORIZONTAL, register, login, test);
-        layout.linkSize(SwingConstants.HORIZONTAL, basicGuide, text, writingArea);
+        layout.linkSize(SwingConstants.HORIZONTAL, basicGuide, text, writingArea, letters);
 
         layout.setVerticalGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)

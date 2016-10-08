@@ -4,29 +4,25 @@
  */
 package fi.maaretdufva.logic;
 
-import fi.maaretdufva.users.AllUsers;
 import fi.maaretdufva.users.User;
 
 public class Game {
 
     private User user;
-    private AllUsers all;
     private String typeThis;
     private int level;
 
     public Game(User givenUser) {
         this.user = givenUser;
-        this.all = new AllUsers(user);
         this.typeThis = null;
         this.level = 0;
-        System.out.println(user.getPoints());
     }
 
-    public Game() {
-        start();
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public User myUser() {
+    public User getUser() {
         return this.user;
     }
 
