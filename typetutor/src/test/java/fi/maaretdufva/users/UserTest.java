@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Maaret Dufva
+ * @author Maaret
  */
 public class UserTest {
 
@@ -17,15 +17,15 @@ public class UserTest {
 
     @Before
     public void setUp() {
-        t = new User("nimi");
+        t = new User("name");
     }
 
     @Test
-    public void konstruktoriAsettaaKayttajatunnuksen() {
-        assertEquals(t.getUsername(), "nimi");
+    public void constructorSetsUsername() {
+        assertEquals(t.getUsername(), "name");
     }
 
-    public void setAllAsettaaTiedot() {
+    public void setAllSetsCorrectInfo() {
         t.setAll("Elli", "Etana", "etana@posti.fi");
         assertEquals(t.getFirstname(), "Elli");
         assertEquals(t.getLastname(), "Etana");
@@ -40,59 +40,64 @@ public class UserTest {
     }
 
     @Test
-    public void toStringPalauttaaOikeanSyotteen() {
-        String syote = "nimi:  , pisteet: 0\n sähköposti: ";
+    public void toStringReturnsCorrectOutput() {
+        String syote = "name:  , points: 0\n email: ";
         assertEquals(syote, t.toString());
-    }
-
-    public void getLevelLaskeeLevelinOikein() {
-        t.setPoints(344);
-        assertEquals(t.getLevel(), 3);
     }
 
     @Test
-    public void toStringPalauttaaOikeanSyotteen1() {
-        t.setEtunimi("Ville");
-        t.setSukunimi("Virta");
+    public void toStringReturnsCorrectOutput1() {
+        t.setFirstname("Ville");
+        t.setLastname("Virta");
         t.setPoints(7);
         t.setEmail("juu@huu.fi");
-        String syote = "nimi: Ville Virta, pisteet: 7\n sähköposti: juu@huu.fi";
+        String syote = "name: Ville Virta, points: 7\n email: juu@huu.fi";
         assertEquals(syote, t.toString());
     }
 
-//    @Test
-//    public void konstruktoriAsettaaLevelin() {
-//        assertEquals(b.getLevel(), 0);
-//    }
-//
-//    @Test
-//    public void setteriAsettaaLevelin() {
-//        b.setLevel(18);
-//        assertEquals(b.getLevel(), 18);
-//    }
-//
-//    @Test
-//    public void getteriAntaaLevelin() {
-//        b.setLevel(7);
-//        int level = b.getLevel();
-//        assertEquals(level, 7);
-//    }
-//
-//    @Test
-//    public void determineLevel() {
-//        b.determineLevel(333);
-//        assertEquals(b.getLevel(), 1);
-//        b.determineLevel(100);
-//        assertEquals(b.getLevel(), 0);
-//        b.determineLevel(200);
-//        assertEquals(b.getLevel(), 1);
-//        b.determineLevel(4145);
-//        assertEquals(b.getLevel(), 20);
-//        b.determineLevel(444);
-//        assertEquals(b.getLevel(), 2);
-//        b.determineLevel(-333);
-//        assertEquals(b.getLevel(), 0);
-//        b.determineLevel(0);
-//        assertEquals(b.getLevel(), 0);
-    
+    public void countLevelbyPointsCountsLevelinCorrectly() {
+        t.setPoints(344);
+        assertEquals(t.countLevelbyPoints(), 3);
+        //add more tests
+    }
+
+    @Test
+    public void addPointAddsPoint() {
+        t.setPoints(8);
+        t.addPoint();
+        t.addPoint();
+        assertEquals(10, t.getPoints());
+        t.addPoint();
+        t.addPoint();
+        t.addPoint();
+        assertEquals(13, t.getPoints());
+    }
+
+    @Test
+    public void deductPointDeductsPoint() {
+        t.setPoints(8);
+        t.deductPoint();
+        t.deductPoint();
+        assertEquals(6, t.getPoints());
+        t.deductPoint();
+        assertEquals(5, t.getPoints());
+    }
+
+    @Test
+    public void constructorSetsLevel() {
+        assertEquals(t.countLevelbyPoints(), 0);
+    }
+
+    @Test
+    public void setterSetsLevel() {
+        t.setLevel(18);
+        assertEquals(t.countLevelbyPoints(), 18);
+    }
+
+    @Test
+    public void getterReturnsLevel() {
+        t.setLevel(7);
+        int level = t.countLevelbyPoints();
+        assertEquals(level, 7);
+    }
 }

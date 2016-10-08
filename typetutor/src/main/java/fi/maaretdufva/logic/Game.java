@@ -36,8 +36,14 @@ public class Game {
     }
 
     public int determineLevel() {
-        if (this.level != user.getLevel()) {
-            this.level = user.getLevel();
+        if (this.level != user.countLevelbyPoints()) {
+            this.level = user.countLevelbyPoints();
+            if (level < 0) {
+                level = 0;
+            }
+            if (level > 17) {
+                level = 17;
+            }
             Tutorial tut = new Tutorial();
             tut.letterTutorials(level);
         }

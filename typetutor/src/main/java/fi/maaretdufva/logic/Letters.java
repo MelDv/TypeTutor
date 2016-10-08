@@ -29,58 +29,58 @@ public class Letters {
     }
 
     public String determineString(int level) {
-        if (level < 1) {
+        if (level == 0) {
             return this.letters = randomString("jf", 3);
         }
-        if (level < 2) {
+        if (level == 1) {
             return this.letters = randomString("kd", 3);
         }
-        if (level < 3) {
+        if (level == 2) {
             return this.letters = randomString("jfkd", 4);
         }
-        if (level < 4) {
+        if (level == 3) {
             return this.letters = randomString("ls", 3);
         }
-        if (level < 5) {
+        if (level == 4) {
             return this.letters = randomString("jfkdls", 4);
         }
-        if (level < 6) {
+        if (level == 5) {
             return this.letters = randomString("öa", 3);
         }
-        if (level < 7) {
+        if (level == 6) {
             return this.letters = randomString("lsöajf", 0);
         }
-        if (level < 8) {
+        if (level == 7) {
             return this.letters = randomString("jfkdlsöa", 0);
         }
-        if (level < 9) {
+        if (level == 8) {
             return this.letters = randomString("ru", 3);
         }
-        if (level < 10) {
+        if (level == 9) {
             return this.letters = randomString("jfkdlsöaru", 0);
         }
-        if (level < 11) {
+        if (level == 10) {
             return this.letters = randomString("mv", 3);
         }
-        if (level < 12) {
+        if (level == 11) {
             return this.letters = randomString("urmv", 5);
         }
-        if (level < 13) {
+        if (level == 12) {
             return this.letters = randomWords("jfkdlsöarumv");
         }
-        if (level < 14) {
+        if (level == 13) {
             return this.letters = randomString("iec,", 5);
         }
-        if (level < 15) {
+        if (level == 14) {
             return this.letters = randomString("owx.", 5);
         }
-        if (level < 16) {
+        if (level == 15) {
             return this.letters = randomWords("jfkdlsöarumviecxow,.");
         }
-        if (level < 17) {
+        if (level == 16) {
             return this.letters = randomString("pqz-", 4);
         }
-        if (level < 18) {
+        if (level == 17) {
             return this.letters = randomWords("jfkdlsöarumviecxow,.pqz-");
         }
 

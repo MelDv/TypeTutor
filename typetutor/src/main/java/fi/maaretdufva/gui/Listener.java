@@ -42,7 +42,7 @@ public class Listener implements KeyListener {
         }
 
         points.setText(String.valueOf(user.getPoints()));
-        level.setText(String.valueOf(user.getLevel()));
+        level.setText(String.valueOf(user.countLevelbyPoints()));
         writingArea.setText("");
         text.setText(game.getTypeThis());
         

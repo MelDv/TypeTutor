@@ -3,8 +3,6 @@
  */
 package fi.maaretdufva.users;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Maaret
@@ -35,7 +33,7 @@ public class User {
         this.email = email;
     }
 
-    public void setEtunimi(String newFirstname) {
+    public void setFirstname(String newFirstname) {
         this.firstname = newFirstname;
     }
 
@@ -43,7 +41,7 @@ public class User {
         this.username = newName;
     }
 
-    public void setSukunimi(String newLastname) {
+    public void setLastname(String newLastname) {
         this.lastname = newLastname;
     }
 
@@ -67,12 +65,20 @@ public class User {
         setPoints(getPoints() - 1);
     }
 
-    public int getLevel() {
-        if (points < 200) {
-            level = 0;
-        } else {
-            level = points / 200;
+    public int countLevelbyPoints() {
+        //level can only grow
+        int temp = points / 200;
+        if (level < temp) {
+            level = temp;
         }
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getLevel() {
         return level;
     }
 
@@ -106,6 +112,6 @@ public class User {
     @Override
     public String toString() {
         return this.username + ": " + this.firstname + " "
-                + this.lastname + ", pisteet: " + this.points + "\n sähköposti: " + this.email;
+                + this.lastname + ", points: " + this.points + "\n email: " + this.email;
     }
 }

@@ -15,33 +15,41 @@ public class GameTest {
     static Game g;
     static User u;
     static String s;
+    static int level;
 
     @Before
     public void setUp() {
         u = new User("nimi");
         g = new Game(u);
         s = "Testaus";
+        level = 0;
     }
 
-//    @Test
-//    public void addPointAddsPoint() {
-//        u.setPoints(8);
-//        g.addPoint();
-//        g.addPoint();
-//        assertEquals(10, u.getPoints());
-//        g.addPoint();
-//        g.addPoint();
-//        g.addPoint();
-//        assertEquals(13, u.getPoints());
-//    }
-//
-//    @Test
-//    public void deductPointDeductsPoint() {
-//        u.setPoints(8);
-//        g.deductPoint();
-//        g.deductPoint();
-//        assertEquals(6, u.getPoints());
-//        g.deductPoint();
-//        assertEquals(5, u.getPoints());
-//    }
+    @Test
+    public void determineLevel() {
+        assertEquals(0, g.determineLevel());
+        u.setLevel(0);
+        assertEquals(0, g.determineLevel());
+        u.setPoints(-555);
+        assertEquals(0, g.determineLevel());
+        u.setPoints(256);
+        assertEquals(1, g.determineLevel());
+        u.setPoints(0);
+        assertEquals(1, g.determineLevel());
+        u.setPoints(200);
+        assertEquals(1, g.determineLevel());
+        u.setPoints(270);
+        assertEquals(1, g.determineLevel());
+        u.setPoints(874);
+        u.setLevel(12);
+        assertEquals(12, g.determineLevel());
+        u.setPoints(3000);
+        assertEquals(15, g.determineLevel());
+        u.setPoints(5800);
+        assertEquals(17, g.determineLevel());
+        u.setPoints(17040);
+        assertEquals(17, g.determineLevel());
+        u.setLevel(44);
+        assertEquals(17, g.determineLevel());
+    }
 }
