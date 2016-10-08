@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Maaret Dufva
+ * @author Maaret 
  */
 public class GuiTest {
 

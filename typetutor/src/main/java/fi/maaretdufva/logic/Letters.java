@@ -29,6 +29,12 @@ public class Letters {
     }
 
     public String determineString(int level) {
+        if (level < 0) {
+            level = 0;
+        }
+        if (level > 17) {
+            level = 17;
+        }
         if (level == 0) {
             return this.letters = randomString("jf", 3);
         }
@@ -83,7 +89,6 @@ public class Letters {
         if (level == 17) {
             return this.letters = randomWords("jfkdlsöarumviecxow,.pqz-");
         }
-
         return this.letters;
     }
 
@@ -97,7 +102,7 @@ public class Letters {
     }
 
     public String randomString(String charactersToLearn, int numberOfLetters) {
-        int numberOfWords = 20;
+        int numberOfWords = 10;
         Random r = new Random();
         int wordLength = 0;
         String typeThis = "";

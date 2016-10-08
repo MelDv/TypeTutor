@@ -17,35 +17,36 @@ public class Tutorial {
         System.out.println("Käet näppäimistölle");
     }
 
-    public void letterTutorials(int level) {
+    public String letterTutorials(int level) {
         if (level == 0) {
-            System.out.println("Nakuta äffää ja jiitä etusormilla.");
+            return "Nakuta äffää ja jiitä etusormilla.";
         }
         if (level == 1) {
-            System.out.println("Nakuta keskisormilla deetä ja koota.");
+            return "Nakuta keskisormilla deetä ja koota.";
         }
         if (level == 2) {
-            System.out.println("Loistavaa! Nyt f, j, d ja k yhdessä.");
+            return "Loistavaa! Nyt f, j, d ja k yhdessä.";
         }
         if (level == 3) {
-            System.out.println("Harjoittele ällää ja ässää nimettömillä.");
+            return "Harjoittele ällää ja ässää nimettömillä.";
         }
         if (level == 4) {
-            System.out.println("Hyvin menee! Nyt jfkdls kaikki yhdessä.");
+            return "Hyvin menee! Nyt jfkdls kaikki yhdessä.";
         }
         if (level == 5) {
-            System.out.println("Otetaan pikkurilli mukaan. Harjoittele aa ja öö.");
+            return "Otetaan pikkurilli mukaan. Harjoittele aa ja öö.";
         }
         if (level == 6) {
-            System.out.println("Harjoittele vielä yhdistämään lsöajf.");
+            return "Harjoittele vielä yhdistämään lsöajf.";
         }
         if (level == 7) {
-            System.out.println("Muistatko kaikki keskirivin näppäimet? Harjoittele jfkdlsöa.");
+            return "Muistatko kaikki keskirivin näppäimet? Harjoittele jfkdlsöa.";
         }
         if (level == 8) {
-            System.out.println("Edistyt erinomaisesti! Siirrytään yläriville. "
-                    + "Kirjoita kirjaimia är ja uu etusormilla.");
+            return "Edistyt erinomaisesti! Siirrytään yläriville. "
+                    + "Kirjoita kirjaimia är ja uu etusormilla.";
         }
+        return "";
         //To be continued
     }
 }

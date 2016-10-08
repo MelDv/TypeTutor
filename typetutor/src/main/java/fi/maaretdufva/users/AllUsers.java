@@ -40,7 +40,7 @@ public class AllUsers {
     }
 
     public void deleteUser(User deleteMe) {
-        this.all.remove(deleteMe);
+        this.all.remove(deleteMe.getUsername());
     }
 
     public boolean findUser(String username) {
@@ -62,6 +62,9 @@ public class AllUsers {
     }
 
     public int numberOfUsers() {
+        if (all.isEmpty() || all == null) {
+            return 0;
+        }
         return this.all.size();
     }
 

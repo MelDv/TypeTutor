@@ -5,11 +5,11 @@ package fi.maaretdufva.users;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.junit.Before;
+import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  *
@@ -20,15 +20,25 @@ public class AllUsersTest {
     static AllUsers au;
     static User user;
     static User user1;
-    static Map<String, User> map;
+    static User user2;
+    static Map<String, User> all;
 
     @Before
     public void setUp() {
         user = new User("Matti");
         user1 = new User("Riina");
+        user2 = new User("Kaija");
         au = new AllUsers(user);
-        map = new HashMap<>();
-        map.put(user.getUsername(), user);
+        all = new HashMap<>();
+        all.put(user.getUsername(), user);
+    }
+
+    @Test
+    public void getUsersReturnsMapOfUsers() {
+        assertEquals(au.getUsers(), all);
+        au.addUser(user1);
+        all.put("Riina", user1);
+        assertEquals(au.getUsers(), all);
     }
 
     @Test
@@ -46,17 +56,6 @@ public class AllUsersTest {
     }
 
     @Test
-    public void numberOfUsersGivesCorrectNummber() {
-        au.addUser(user1);
-        assertEquals(au.numberOfUsers(), 2);
-    }
-
-    @Test
-    public void getUsersReturnsMapOfUsers() {
-        assertEquals(au.getUsers(), map);
-    }
-
-    @Test
     public void findUserGivesCorrectBoolean() {
         if (au.findUser("Pekka")) {
             fail();
@@ -66,7 +65,6 @@ public class AllUsersTest {
 
     @Test
     public void updateUserUpdatesUser() {
-        User user2 = new User("Kaija");
         au.updateUser("Matti", user2);
         if (au.findUser("Matti")) {
             fail();
@@ -74,5 +72,20 @@ public class AllUsersTest {
         if (!au.findUser("Kaija")) {
             fail();
         }
+    }
+
+    @Test
+    public void numberOfUsersGivesCorrectNummber() {
+        au.addUser(user1);
+        assertEquals(au.numberOfUsers(), 2);
+        au.deleteUser(user);
+        au.deleteUser(user1);
+        assertEquals(au.numberOfUsers(), 0);
+    }
+
+    @Test
+    public void toStringReturnsCorrectString() {
+        au.deleteUser(user);
+        assertEquals("This user list is empty", au.toString());
     }
 }

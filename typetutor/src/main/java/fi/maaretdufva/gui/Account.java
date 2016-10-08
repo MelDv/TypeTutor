@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Account {
 
-    // this is a test class.
+    // This class was for original testing before gui. It will be deleted soon.
     private Scanner reader;
     private User user;
     private AllUsers all;
