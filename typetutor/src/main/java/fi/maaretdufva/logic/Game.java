@@ -11,11 +11,16 @@ public class Game {
     private User user;
     private String typeThis;
     private int level;
+    private char typeLetter;
 
     public Game(User givenUser) {
         this.user = givenUser;
         this.typeThis = null;
         this.level = 0;
+        this.typeLetter = 's';
+    }
+
+    public Game() {
     }
 
     public void setUser(User user) {
@@ -52,8 +57,6 @@ public class Game {
     }
 
     public char sendToListener() {
-        char typeLetter = 's';
-
         if (typeThis == null) {
             determineLevel();
             determineTypeThis();
@@ -69,6 +72,10 @@ public class Game {
         typeLetter = typeThis.charAt(0);
         typeThis = typeThis.substring(1);
         return typeLetter;
+    }
+
+    public char getKey() {
+        return typeThis.charAt(0);
     }
 
     public String getTypeThis() {

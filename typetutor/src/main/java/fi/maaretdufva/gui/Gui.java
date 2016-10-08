@@ -6,7 +6,6 @@ package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.User;
-import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;

@@ -28,6 +28,7 @@ public class Letters {
         return 0;
     }
 
+    //Caps missing for now.
     public String determineString(int level) {
         if (level < 0) {
             level = 0;
