@@ -51,6 +51,7 @@ public class Listener implements KeyListener {
 
         //This is code for the the gui test robot. Unquote, start Typetutor and then
         //RobotTest class (go to class, right click and run file) to see how it works.
+        //
 //        RobotTest robot = new RobotTest();
 //        try {
 //            robot.setText(game.getKey());
