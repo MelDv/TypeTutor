@@ -19,7 +19,7 @@ import javax.swing.WindowConstants;
 
 /**
  *
- * @author Maaret Dufva
+ * @author Maaret 
  */
 public class Gui implements Runnable {
 
@@ -44,9 +44,8 @@ public class Gui implements Runnable {
     private void createComponents(Container container) {
         User user = new User("TestUser");
         Game game = new Game(user);
-        
-        
-        // Creates the buttons and areas
+
+        // Creates buttons and areas
         JButton register = new JButton("Register");
         register.addActionListener(new RegisterListener());
 

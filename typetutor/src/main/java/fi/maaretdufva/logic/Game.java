@@ -17,7 +17,7 @@ public class Game {
     public Game(User givenUser) {
         this.user = givenUser;
         this.all = new AllUsers(user);
-        this.typeThis = "";
+        this.typeThis = null;
         this.level = 0;
         System.out.println(user.getPoints());
     }
@@ -31,16 +31,8 @@ public class Game {
     }
 
     public void start() {
-        if (user == null || user.getPoints() == 0) {
-            OnBoarding begin = new OnBoarding();
-            begin.start();
-        } else {
-            determineLevel();
-            System.out.println(level);
-            determineTypeThis();
-            System.out.println(typeThis);
-            sendToListener();
-        }
+        determineLevel();
+        sendToListener();
     }
 
     public int determineLevel() {
@@ -58,12 +50,21 @@ public class Game {
     }
 
     public char sendToListener() {
-        if (typeThis == null || typeThis.length() == 0) {
+        char typeLetter = 's';
+
+        if (typeThis == null) {
             determineLevel();
             determineTypeThis();
+            typeLetter = typeThis.charAt(0);
+            return typeLetter;
+        } else if (typeThis.length() == 1) {
+            typeLetter = typeThis.charAt(0);
+            determineLevel();
+            determineTypeThis();
+            return typeLetter;
         }
 
-        char typeLetter = typeThis.charAt(0);
+        typeLetter = typeThis.charAt(0);
         typeThis = typeThis.substring(1);
         return typeLetter;
     }

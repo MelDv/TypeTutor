@@ -37,9 +37,7 @@ public class Listener implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent ke) {
-        if (ke.getKeyCode() == 10) {
-            System.out.println("");
-        } else if (ke.getKeyChar() == game.sendToListener()) {
+        if (ke.getKeyChar() == game.sendToListener()) {
             user.addPoint();
         } else {
             user.deductPoint();
@@ -53,6 +51,10 @@ public class Listener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
+        //Pressing enter doesn't deduct points
+        if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+            user.addPoint();
+        }
     }
 
     @Override
