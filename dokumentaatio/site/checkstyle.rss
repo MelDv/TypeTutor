@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 11,
-             Errors: 0,
+      <title>File: 10,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -60,6 +60,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#robots.RobotTest.java">robots/RobotTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#fi.maaretdufva.logic.Tutorial.java">fi/maaretdufva/logic/Tutorial.java</a>
                 </td>
                 <td>
@@ -88,20 +102,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.gui.Account.java">fi/maaretdufva/gui/Account.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#fi.maaretdufva.users.User.java">fi/maaretdufva/users/User.java</a>
                 </td>
                 <td>
@@ -117,20 +117,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.maaretdufva.gui.Main.java">fi/maaretdufva/gui/Main.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.maaretdufva.logic.OnBoarding.java">fi/maaretdufva/logic/OnBoarding.java</a>
                 </td>
                 <td>
                   0
