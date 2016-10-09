@@ -8,13 +8,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-/**
- * This is a test class for AllUsers class.
- *
- * @author Maaret Dufva
- * @version 0.1.0
- * @since 0.1.0
- */
 public class AllUsersTest {
 
     static AllUsers au;

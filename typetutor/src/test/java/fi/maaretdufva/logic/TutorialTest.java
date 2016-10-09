@@ -4,13 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-/**
- * This class test the Turorial class.
- *
- * @author Maaret Dufva
- * @version 0.1.0
- * @since 0.1.0
- */
 public class TutorialTest {
 
     static Tutorial tut;
