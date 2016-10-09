@@ -44,20 +44,25 @@ public class Listener implements KeyListener {
             user.deductPoint();
         }
 
+        //sendToRobot();
         points.setText(String.valueOf(user.getPoints()));
         level.setText(String.valueOf(user.countLevelbyPoints()));
         writingArea.setText("");
         text.setText(game.getTypeThis());
+    }
 
-        //This is code for the the gui test robot. Unquote, start Typetutor and then
-        //RobotTest class (go to class, right click and run file) to see how it works.
+    public void sendToRobot() {
+        //This is code for the the gui test robot. Unquote the command in keyTyped(), 
+        //and run the program from RobotTest class. 
+        //(Right click -> Run file or set RobotTest to Main class.)
         //
-//        RobotTest robot = new RobotTest();
-//        try {
-//            robot.setText(game.getKey());
-//        } catch (Exception ex) {
-//            Logger.getLogger(Listener.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        RobotTest robot = new RobotTest();
+        try {
+            robot.setText(game.getKey());
+        } catch (Exception ex) {
+            Logger.getLogger(Listener.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @Override
