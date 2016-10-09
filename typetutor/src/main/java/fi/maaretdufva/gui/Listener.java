@@ -58,6 +58,10 @@ public class Listener implements KeyListener {
         text.setText(game.getTypeThis());
     }
 
+    /**
+     * If the RobotTest is being used, this method will provide it with
+     * information about the next character to type.
+     */
     public void sendToRobot() {
         //This is code for the the gui test robot. Unquote the command in keyTyped(), 
         //and run the program from RobotTest class. 

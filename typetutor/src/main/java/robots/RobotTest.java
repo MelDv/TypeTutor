@@ -19,7 +19,6 @@ import javax.swing.SwingUtilities;
  * @since 0.1.0
  */
 public class RobotTest {
-    //You need to run the program first and then this file.
 
     private char type;
 
@@ -30,6 +29,13 @@ public class RobotTest {
         this.type = 's';
     }
 
+    /**
+     * This class can be used as Main class when running the program for test
+     * purposes. This is the main method.
+     *
+     * @param args Automatic.
+     * @throws Exception in case of trouble.
+     */
     public static void main(String args[]) throws Exception {
         Gui gui = new Gui();
         SwingUtilities.invokeLater(gui);
@@ -46,6 +52,12 @@ public class RobotTest {
 
     }
 
+    /**
+     * This method tells the robot which key to press.
+     *
+     * @param newType The character to be pressed from the Game class.
+     * @throws Exception in case of trouble.
+     */
     //Only knows j, f and space for now
     public void setText(char newType) throws Exception {
         Robot r = new Robot();

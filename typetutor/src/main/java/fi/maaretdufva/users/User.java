@@ -32,6 +32,13 @@ public class User {
         this.level = 0;
     }
 
+    /**
+     * Sets several parameters for the user: first and last name and email.
+     *
+     * @param firtsname Given by user as a String.
+     * @param lastname Given by user as a String.
+     * @param email Given by user as a String.
+     */
     public void setAll(String firtsname, String lastname, String email) {
         this.firstname = firtsname;
         this.lastname = lastname;

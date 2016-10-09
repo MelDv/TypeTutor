@@ -38,6 +38,13 @@ public class AllUsers {
         return this.all;
     }
 
+    /**
+     * Return the user whose username is given as a parameter.
+     *
+     * @param username To be sought for from the map of user.
+     * @return user, if it can be found from the map of users. If not, returns
+     * null value.
+     */
     public User getUser(String username) {
         if (all.containsKey(username)) {
             return all.get(username);

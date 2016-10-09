@@ -29,9 +29,20 @@ public class Letters {
         this.repetition = new HashMap<>();
     }
 
+    /**
+     * This class will set the permitted repetition frequence for a certain
+     * word.
+     */
     public void setRepetition() {
     }
 
+    /**
+     * Thiss class will return the real repetition value as an integer, for a
+     * word given as parameter.
+     *
+     * @param sana to be sought for from the repetition map.
+     * @return repetition value from the map.
+     */
     public int getRepetition(String sana) {
         return 0;
     }
