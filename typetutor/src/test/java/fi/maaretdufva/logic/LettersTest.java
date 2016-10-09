@@ -1,6 +1,3 @@
-/*
- * This class tests that the Letters class works properly.
- */
 package fi.maaretdufva.logic;
 
 import org.junit.Before;
@@ -8,8 +5,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * This class tests that the Letters class works properly.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class LettersTest {
 
