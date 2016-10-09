@@ -100,22 +100,25 @@ public class Letters {
             return this.letters = randomString("urmv", 5);
         }
         if (level == 12) {
-            return this.letters = randomWords("jfkdlsöarumv");
+            //return this.letters = randomWords("jfkdlsöarumv");
+            return this.letters = randomString("jfkdlsöarumv", 6);
         }
         if (level == 13) {
-            return this.letters = randomString("iec,", 5);
+            return this.letters = randomString("iec,!", 5);
         }
         if (level == 14) {
-            return this.letters = randomString("owx.", 5);
+            return this.letters = randomString("owx.?", 5);
         }
         if (level == 15) {
-            return this.letters = randomWords("jfkdlsöarumviecxow,.");
+            //return this.letters = randomWords("jfkdlsöarumviecxow,.");
+            return this.letters = randomString("jfkdlsöarumviecxow,.", 0);
         }
         if (level == 16) {
             return this.letters = randomString("pqz-", 4);
         }
         if (level == 17) {
-            return this.letters = randomWords("jfkdlsöarumviecxow,.pqz-");
+            //return this.letters = randomWords("jfkdlsöarumviecxow,.pqz-");
+            return this.letters = randomString("jfkdlsöarumviecxow,.pqz-", 0);
         }
         return this.letters;
     }
@@ -130,7 +133,7 @@ public class Letters {
     public String randomWords(String letters) {
         String typeThis = "";
         Random r = new Random();
-        //words with certain letters from a file or list
+        //words with certain letters from a file or list.
 
         return typeThis;
 
