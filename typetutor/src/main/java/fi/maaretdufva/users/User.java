@@ -17,6 +17,11 @@ public class User {
     private int points;
     private int level;
 
+    /**
+     * Constructor.
+     *
+     * @param username Given by user.
+     */
     public User(String username) {
         this.username = username;
         this.firstname = "";
@@ -57,16 +62,27 @@ public class User {
         this.points = newPoints;
     }
 
+    /**
+     * Adds a point to the user's points.
+     */
     public void addPoint() {
         setPoints(getPoints() + 1);
     }
 
+    /**
+     * Deletes a point from the user's points.
+     */
     public void deductPoint() {
         setPoints(getPoints() - 1);
     }
 
+    /**
+     * Counts the level by dividing user's points with 200. The level can only
+     * grow.
+     *
+     * @return level as an integer.
+     */
     public int countLevelbyPoints() {
-        //level can only grow
         int temp = points / 200;
         if (level < temp) {
             level = temp;
@@ -102,6 +118,12 @@ public class User {
         return this.points;
     }
 
+    /**
+     * Tests whether the user has given the correct password.
+     *
+     * @param testThis The password given by user.
+     * @return boolean value true, if the password is correct. False if not.
+     */
     public boolean testPassword(String testThis) {
         if (this.password.equals(testThis)) {
             return true;

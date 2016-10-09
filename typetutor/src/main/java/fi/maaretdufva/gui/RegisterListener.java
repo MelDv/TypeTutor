@@ -17,6 +17,9 @@ import java.awt.event.ActionListener;
  */
 public class RegisterListener implements ActionListener {
 
+    /**
+     * Constructor.
+     */
     public RegisterListener() {
     }
 

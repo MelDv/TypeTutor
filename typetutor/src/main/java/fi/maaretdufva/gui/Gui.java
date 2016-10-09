@@ -28,6 +28,9 @@ public class Gui implements Runnable {
 
     private JFrame frame;
 
+    /**
+     * Constructor.
+     */
     public Gui() {
     }
 

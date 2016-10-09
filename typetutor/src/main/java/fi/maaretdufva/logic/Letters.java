@@ -21,6 +21,9 @@ public class Letters {
     private String letters;
     private Map<Integer, String> repetition;
 
+    /**
+     * Constructor.
+     */
     public Letters() {
         this.letters = "";
         this.repetition = new HashMap<>();
@@ -34,6 +37,14 @@ public class Letters {
     }
 
     //Caps missing for now.
+    /**
+     * Determines the characters which the user should learn next based on the
+     * level given as parameter. Calls methods randomWords and randomString.
+     *
+     * @param level Game class provides level information
+     * @return the characters as a String that can be used in the next String to
+     * be typed;
+     */
     public String determineString(int level) {
         if (level < 0) {
             level = 0;
@@ -98,6 +109,13 @@ public class Letters {
         return this.letters;
     }
 
+    /**
+     * Finds words from a list or database. The words can only contain letters
+     * given in a parameter String.
+     *
+     * @param letters Given by determineString method.
+     * @return a String of 10 words.
+     */
     public String randomWords(String letters) {
         String typeThis = "";
         Random r = new Random();
@@ -107,6 +125,15 @@ public class Letters {
 
     }
 
+    /**
+     * Creates a random Sring using characters given as a String parameter. Each
+     * random word has the number of characters given as an integer parameter.
+     *
+     * @param charactersToLearn A String of characters creating a return String.
+     * @param numberOfLetters The number of letters each random character
+     * sequence should contain.
+     * @return a String of ten random character sequences.
+     */
     public String randomString(String charactersToLearn, int numberOfLetters) {
         int numberOfWords = 10;
         Random r = new Random();

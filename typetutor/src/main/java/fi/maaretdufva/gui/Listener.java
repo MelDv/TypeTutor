@@ -30,6 +30,9 @@ public class Listener implements KeyListener {
     private Game game;
     private User user;
 
+    /**
+     * Constructor.
+     */
     Listener(User user, JTextArea writingArea, JTextArea text, JLabel points, JLabel level) {
         this.writingArea = writingArea;
         this.text = text;
@@ -81,7 +84,8 @@ public class Listener implements KeyListener {
     public void keyReleased(KeyEvent ke) {
     }
 
-    public int returnPoints() {
+    public int getPoints() {
         return user.getPoints();
     }
+
 }

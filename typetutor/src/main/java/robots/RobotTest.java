@@ -23,6 +23,9 @@ public class RobotTest {
 
     private char type;
 
+    /**
+     * Constructor.
+     */
     public RobotTest() {
         this.type = 's';
     }

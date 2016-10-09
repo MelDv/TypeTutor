@@ -1,22 +1,39 @@
-/*
- * The typing guides are in this class.
- */
 package fi.maaretdufva.logic;
 
 /**
+ * The typing guides are in this class.
+ * <p>
+ * When the user reaches the next level, the information text on the window is
+ * retrieved from this class. It will aslo contain other instructions and visual
+ * guides.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class Tutorial {
     //guidance texts and pics coming soonish
 
+    /**
+     * Constructor.
+     */
     public Tutorial() {
     }
 
+    /**
+     * Guide for placing your hands on the keyboard.
+     */
     public void handPosture() {
         System.out.println("Käet näppäimistölle");
     }
 
+    /**
+     * Guides for typing each letter.
+     *
+     * @param level Game class calls for this method and provides level
+     * information.
+     * @return instructions for typing efficiently based on level.
+     */
     public String letterTutorials(int level) {
         if (level == 0) {
             return "Nakuta äffää ja jiitä etusormilla.";

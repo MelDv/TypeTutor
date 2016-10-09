@@ -19,6 +19,11 @@ public class Game {
     private int level;
     private char typeLetter;
 
+    /**
+     * Constructor.
+     *
+     * @param givenUser Gui class provides user.
+     */
     public Game(User givenUser) {
         this.user = givenUser;
         this.typeThis = null;
@@ -26,6 +31,9 @@ public class Game {
         this.typeLetter = 's';
     }
 
+    /**
+     * Constructor.
+     */
     public Game() {
     }
 
@@ -37,11 +45,20 @@ public class Game {
         return this.user;
     }
 
+    /**
+     * Starts the logical functions by calling methods determineLevel() and
+     * sendToListener().
+     */
     public void start() {
         determineLevel();
         sendToListener();
     }
 
+    /**
+     * Determines the user's level.
+     *
+     * @return level as an integer.
+     */
     public int determineLevel() {
         if (this.level != user.countLevelbyPoints()) {
             this.level = user.countLevelbyPoints();
@@ -57,11 +74,22 @@ public class Game {
         return this.level;
     }
 
+    /**
+     * Determines a string by calling method determineString in Letters class.
+     * Saves the string into a private parameter.
+     */
     public void determineTypeThis() {
         Letters letters = new Letters();
         typeThis = letters.determineString(level);
     }
 
+    /**
+     * Takes the first character from the string to be typed and returns it. The
+     * Listener class uses this method to test wheter the user has typed the
+     * correct character.
+     *
+     * @return the character that should be typed next
+     */
     public char sendToListener() {
         if (typeThis == null) {
             determineLevel();
