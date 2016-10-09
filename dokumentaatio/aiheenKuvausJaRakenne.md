@@ -1,4 +1,4 @@
-**Aihe:** TypeTutor on ohjelma, jonka avulla voi opetella käyttämään kymmensormijärjestelmää yhden sormen tökkimisen sijaan.
+﻿**Aihe:** TypeTutor on ohjelma, jonka avulla voi opetella käyttämään kymmensormijärjestelmää yhden sormen tökkimisen sijaan.
 
 Kuten kymmensormijärjestelmää opettavissa kirjoissa tai kursseilla, aloitetaan parista helposta kirjaimesta ja jatketaan vähän kerrallaan eteenpäin, kunnes kaikki kirjaimet on opiskeltu ja harjoiteltu tekniikka sujuvaksi. Tässä versiossa ei ehkä ehditä käydä läpi kaikkia kirjaimia, vaan luoda vasta perustoiminnot ohjelmalle ja esimerkit vaikkapa neljällä kirjaimella.
 
@@ -28,4 +28,7 @@ Alustavassa luokkakaaviossa ei vielä näy esim. logiikkakerroksen kaikkia luokk
 ![Luokkakaavio](luokkakaavio.png "luokkakaavio")
 
 Alustava, hyvin pelkistetty sekvenssikaavio.
-![Sekvenssikaavio](sekvenssikaavio.png "sekvenssikaavio")
+![Sekvenssikaavio käynnistyksestä](sekvenssikaavio.png "sekvenssikaavio")
+
+Sekvenssikaavio kirjaimen näppäilystä ja käsittelystä.
+![Sekvenssikaavio pelistä](sekvenssikaavio1.png "pelin sekvenssikaavio")
