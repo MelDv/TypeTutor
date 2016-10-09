@@ -1,7 +1,3 @@
-/*
- * This is a test class for Game.
- * @author Maaret 
- */
 package fi.maaretdufva.logic;
 
 import fi.maaretdufva.users.User;
@@ -11,6 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * This is a test class for Game class.
+ *
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
+ */
 public class GameTest {
 
     static Game g;

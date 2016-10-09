@@ -1,6 +1,3 @@
-/*
- * This class creates random strings for practicing
- */
 package fi.maaretdufva.logic;
 
 import java.util.HashMap;
@@ -8,8 +5,16 @@ import java.util.Map;
 import java.util.Random;
 
 /**
+ * This class creates random strings for practicing.
+ * <p>
+ * The users level will determine which letters she is going to practice. Those
+ * letters are then used to create random strings for practicing. When the user
+ * knows enough letters, the class will find proper words from a file or
+ * database and string them together for the user.
  *
- * @author md
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class Letters {
 

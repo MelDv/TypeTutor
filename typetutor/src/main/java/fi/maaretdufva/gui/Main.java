@@ -1,13 +1,13 @@
-/*
- *  This is the main class of TypeTutor
- */
 package fi.maaretdufva.gui;
 
 import javax.swing.SwingUtilities;
 
 /**
+ * This is the main class for TypeTutor.
  *
  * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class Main {
 

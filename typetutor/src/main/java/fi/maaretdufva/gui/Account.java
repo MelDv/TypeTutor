@@ -1,6 +1,3 @@
-/*
- * This is a test class to be used without the gui.
- */
 package fi.maaretdufva.gui;
 
 import fi.maaretdufva.users.AllUsers;
@@ -8,8 +5,11 @@ import fi.maaretdufva.users.User;
 import java.util.Scanner;
 
 /**
+ * This is a test class to be used without the gui.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class Account {
 

@@ -1,11 +1,17 @@
-/*
- * The main class for the program.
- * @author md
- */
 package fi.maaretdufva.logic;
 
 import fi.maaretdufva.users.User;
 
+/**
+ * This is the main logic class.
+ * <p>
+ * This class creates characters and strings for the gui and user. It sends them
+ * to the listener and determines which level the user is currently on.
+ *
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
+ */
 public class Game {
 
     private User user;

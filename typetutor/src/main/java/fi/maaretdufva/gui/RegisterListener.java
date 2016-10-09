@@ -1,6 +1,3 @@
-/*
- * This class will deal with new users.
- */
 package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
@@ -9,8 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * This class will deal with new users.
+ * <p>
+ * If a user presses the Register-button, this class will deal with getting user
+ * information, creating a new user and adding the user to the list of users.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class RegisterListener implements ActionListener {
 

@@ -1,14 +1,14 @@
-/*
- * This class remembers all users.
- */
 package fi.maaretdufva.users;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * This class remembers all users.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class AllUsers {
 

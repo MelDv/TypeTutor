@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.maaretdufva.gui;
 
 /**
+ * This class tests the Listener class.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class ListenerTest {
-    
+
 }

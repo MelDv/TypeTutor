@@ -1,11 +1,11 @@
-/*
- * This is the main class for individual users.
- */
 package fi.maaretdufva.users;
 
 /**
+ * This is a class for individual users.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class User {
 

@@ -1,6 +1,3 @@
-/*
- * This is a test class for AllUsers class.
- */
 package fi.maaretdufva.users;
 
 import java.util.HashMap;
@@ -12,8 +9,11 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 /**
+ * This is a test class for AllUsers class.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class AllUsersTest {
 

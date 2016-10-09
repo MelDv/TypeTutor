@@ -1,6 +1,3 @@
-/*
- * This is the action listener class. It listens to user input and updates the window.
- */
 package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
@@ -13,9 +10,16 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import robots.RobotTest;
 
-/**
+/*
+ * This is the action listener class. 
+ * <p>
+ * This class listens to user input and updates the window accordingly. It receives character information fron Game class and compares it to user input.
+ * It also sends information to the RobotTest class, when it is 
+ * used for testing purposes.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since   0.1.0
  */
 public class Listener implements KeyListener {
 

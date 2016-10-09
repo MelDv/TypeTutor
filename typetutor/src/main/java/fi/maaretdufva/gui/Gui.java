@@ -1,7 +1,3 @@
-/*
- * This is the most important class for the graphical user interface.
- * It creates the frames and defines where each segment goes.
- */
 package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
@@ -19,8 +15,14 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 /**
+ * This class creates the graphical user interface.
+ * <p>
+ * This is the most important class for creating the gui. It creates the frames
+ * and defines where each segment goes.
  *
- * @author Maaret
+ * @author Maaret Dufva
+ * @version 0.1.0
+ * @since 0.1.0
  */
 public class Gui implements Runnable {
 
