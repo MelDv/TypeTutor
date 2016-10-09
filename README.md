@@ -12,4 +12,4 @@ TypeTutoria voi käyttää kuka tahansa, joka ei halua enää hukata aikaa kirja
 * [Käyttöohje](dokumentaatio/käyttöohjeet.md)
 * [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md) 
 * [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/MelDv/TypeTutor/blob/master/dokumentaatio/site/checkstyle.html)
-* [Pit-raportti](https://htmlpreview.github.io/?https://github.com/MelDv/TypeTutor/blob/master/dokumentaatio/pit/201609242132/index.html)
+* [Pit-raportti](https://htmlpreview.github.io/?https://github.com/MelDv/TypeTutor/blob/master/dokumentaatio/pit/201610091547/index.html)
