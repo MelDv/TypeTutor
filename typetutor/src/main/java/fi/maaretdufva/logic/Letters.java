@@ -20,6 +20,7 @@ public class Letters {
 
     private String letters;
     private Map<Integer, String> repetition;
+    private String[] words;
 
     /**
      * Constructor.
@@ -27,6 +28,7 @@ public class Letters {
     public Letters() {
         this.letters = "";
         this.repetition = new HashMap<>();
+        this.words = new String[24];
     }
 
     /**
@@ -60,66 +62,27 @@ public class Letters {
         if (level < 0) {
             level = 0;
         }
-        if (level > 17) {
-            level = 17;
+        if (level > words.length) {
+            level = words.length;
         }
-        if (level == 0) {
-            return this.letters = randomString("jf", 3);
+
+        letter(level);
+
+        if (level < 4) {
+            randomString();
+        } else if (level < 9) {
+            randomStringWithCapitals();
+        } else if (level < 16) {
+            randomStringWithEndPunctuation();
+        } else {
+            randomStringWithPunctuation();
         }
-        if (level == 1) {
-            return this.letters = randomString("kd", 3);
+
+        this.letters = "";
+        for (int i = 0; i < words.length; i++) {
+            this.letters += words[i];
         }
-        if (level == 2) {
-            return this.letters = randomString("jfkd", 4);
-        }
-        if (level == 3) {
-            return this.letters = randomString("ls", 3);
-        }
-        if (level == 4) {
-            return this.letters = randomString("jfkdls", 4);
-        }
-        if (level == 5) {
-            return this.letters = randomString("öa", 3);
-        }
-        if (level == 6) {
-            return this.letters = randomString("lsöajf", 0);
-        }
-        if (level == 7) {
-            return this.letters = randomString("jfkdlsöa", 0);
-        }
-        if (level == 8) {
-            return this.letters = randomString("ru", 3);
-        }
-        if (level == 9) {
-            return this.letters = randomString("jfkdlsöaru", 0);
-        }
-        if (level == 10) {
-            return this.letters = randomString("mv", 3);
-        }
-        if (level == 11) {
-            return this.letters = randomString("urmv", 5);
-        }
-        if (level == 12) {
-            //return this.letters = randomWords("jfkdlsöarumv");
-            return this.letters = randomString("jfkdlsöarumv", 6);
-        }
-        if (level == 13) {
-            return this.letters = randomString("iec,!", 5);
-        }
-        if (level == 14) {
-            return this.letters = randomString("owx.?", 5);
-        }
-        if (level == 15) {
-            //return this.letters = randomWords("jfkdlsöarumviecxow,.");
-            return this.letters = randomString("jfkdlsöarumviecxow,.", 0);
-        }
-        if (level == 16) {
-            return this.letters = randomString("pqz-", 4);
-        }
-        if (level == 17) {
-            //return this.letters = randomWords("jfkdlsöarumviecxow,.pqz-");
-            return this.letters = randomString("jfkdlsöarumviecxow,.pqz-", 0);
-        }
+
         return this.letters;
     }
 
@@ -136,7 +99,6 @@ public class Letters {
         //words with certain letters from a file or list.
 
         return typeThis;
-
     }
 
     /**
@@ -144,31 +106,91 @@ public class Letters {
      * random word has the number of characters given as an integer parameter.
      *
      * @param charactersToLearn A String of characters creating a return String.
-     * @param numberOfLetters The number of letters each random character
-     * sequence should contain.
-     * @return a String of ten random character sequences.
+     * @return a String table of ten random character sequences.
      */
-    public String randomString(String charactersToLearn, int numberOfLetters) {
-        int numberOfWords = 10;
+    private String[] randomString() {
         Random r = new Random();
         int wordLength = 0;
-        String typeThis = "";
 
-        if (numberOfLetters == 0) {
-            wordLength = r.nextInt(3) + 6;
-        } else {
-            wordLength = numberOfLetters;
-        }
-
-        for (int i = 0; i < numberOfWords; i++) {
+        for (int i = 0; i < words.length; i++) {
+            String typeThis = "";
+            if (this.letters.length() < 5) {
+                wordLength = 3;
+            } else {
+                wordLength = r.nextInt(3) + 6;
+            }
             for (int j = 0; j < wordLength; j++) {
-                char letter = (charactersToLearn.charAt(r.nextInt(charactersToLearn.length())));
+                char letter = (this.letters.charAt(r.nextInt(this.letters.length())));
                 typeThis = typeThis + letter;
             }
-            if (i < (numberOfWords - 1)) {
-                typeThis = typeThis + " ";
+            if (i > 0) {
+                words[i] = " " + typeThis;
+            } else {
+                words[i] = typeThis;
             }
         }
-        return typeThis;
+        return words;
     }
+
+    private String[] randomStringWithCapitals() {
+        randomString();
+
+        for (int i = 0; i < words.length; i++) {
+            if (i % 3 == 0) {
+                String temp = words[i];
+                temp = temp.trim();
+                temp = " " + temp.substring(0, 1).toUpperCase() + temp.substring(1);
+                words[i] = temp;
+            }
+        }
+        return words;
+    }
+
+    private String[] randomStringWithEndPunctuation() {
+        Random r = new Random();
+        String[] punctuation = {".", "!", "?"};
+
+        randomString();
+        randomStringWithCapitals();
+
+        for (int i = 0; i < words.length; i++) {
+            if (i != 0 && i % 2 == 0) {
+                String temp = words[i];
+                temp = temp + punctuation[r.nextInt(punctuation.length)];
+                words[i] = temp;
+            }
+        }
+        return words;
+    }
+
+    private String[] randomStringWithPunctuation() {
+        Random r = new Random();
+        String[] punctuation = {",", ":", ";", " –"};
+
+        randomString();
+        randomStringWithCapitals();
+        randomStringWithEndPunctuation();
+
+        for (int i = 0; i < words.length; i++) {
+            if (i != 0 && i % 4 == 0) {
+                String temp = words[i];
+                temp = temp + punctuation[r.nextInt(punctuation.length)];
+                words[i] = temp;
+            }
+        }
+        return words;
+    }
+
+    private String letter(int level) {
+        String[] letterSequences = {"jf", "kd", "jfkd", "ls", "jfkdls",
+            "lsöaä", "hg", ",-.!?", "hgjfkdls",
+            "hgjfkdlsöaä", "ru", "ie", "urie", "yt",
+            "tyruei", "jfkdlsöatyruei", "ow", "pqå", "owpqå",
+            "jfkdlsöatyrueiopwqå", "mv", "cxz", "nb", "mvcxznb",
+            "qwertyuiopåäölkjhgfdsazxcvbnm"};
+
+        this.letters = letterSequences[level];
+        return this.letters;
+    }
+//öaä
 }

@@ -63,7 +63,7 @@ public class Listener implements KeyListener {
      * information about the next character to type.
      */
     public void sendToRobot() {
-        //This is code for the the gui test robot. Unquote the command in keyTyped(), 
+        //This is code for the gui test robot. Unquote the command in keyTyped(), 
         //and run the program from RobotTest class. 
         //(Right click -> Run file or set RobotTest to Main class.)
         //

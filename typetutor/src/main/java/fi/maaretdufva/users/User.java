@@ -94,12 +94,12 @@ public class User {
         if (level < temp) {
             level = temp;
         }
-        if (level < 0) {
-            level = 0;
-        }
-        if (level > 17) {
-            level = 17;
-        }
+//        if (level < 0) {
+//            level = 0;
+//        }
+//        if (level > 17) {
+//            level = 17;
+//        }
         return level;
     }
 

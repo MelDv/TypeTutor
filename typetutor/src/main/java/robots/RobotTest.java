@@ -11,8 +11,16 @@ import javax.swing.SwingUtilities;
  * <p>
  * It can be used to quickly check that the gui works properly and that you get
  * proper practice strings on different levels. The robot makes it easier to
- * check that the points, levels and all other information that should updates
- * correctly as the user's skills advance.
+ * check that the points, levels and other information updates correctly as the
+ * user's skills advance.
+ *
+ * Important! Before running this file, unquote the command sendToRobot(); on
+ * Listener class, inside gui package. It sends the letters to the robot. Then
+ * run this file as main class or right click your mouse and Run file. Shift +
+ * F6 works too.
+ *
+ * If you want to slow down the automatic typing, tweak the Thread.sleep(0)
+ * value at the end of main method in this class.
  *
  * @author Maaret Dufva
  * @version 0.1.0
@@ -28,7 +36,6 @@ public class RobotTest {
     public RobotTest() {
         this.type = 's';
     }
-
     /**
      * This class can be used as Main class when running the program for test
      * purposes. This is the main method.
@@ -50,7 +57,6 @@ public class RobotTest {
             r.keyRelease(10);
         }
     }
-
     /**
      * This method tells the robot which key to press.
      *
@@ -77,6 +83,14 @@ public class RobotTest {
             case 'k':
                 r.keyPress(KeyEvent.VK_K);
                 r.keyRelease(KeyEvent.VK_K);
+                break;
+            case 'g':
+                r.keyPress(KeyEvent.VK_G);
+                r.keyRelease(KeyEvent.VK_G);
+                break;
+            case 'h':
+                r.keyPress(KeyEvent.VK_H);
+                r.keyRelease(KeyEvent.VK_H);
                 break;
             case 'd':
                 r.keyPress(KeyEvent.VK_D);
@@ -138,6 +152,30 @@ public class RobotTest {
                 r.keyPress(KeyEvent.VK_Z);
                 r.keyRelease(KeyEvent.VK_Z);
                 break;
+            case 't':
+                r.keyPress(KeyEvent.VK_T);
+                r.keyRelease(KeyEvent.VK_T);
+                break;
+            case 'q':
+                r.keyPress(KeyEvent.VK_Q);
+                r.keyRelease(KeyEvent.VK_Q);
+                break;
+            case 'p':
+                r.keyPress(KeyEvent.VK_P);
+                r.keyRelease(KeyEvent.VK_P);
+                break;
+            case 'y':
+                r.keyPress(KeyEvent.VK_Y);
+                r.keyRelease(KeyEvent.VK_Y);
+                break;
+            case 'b':
+                r.keyPress(KeyEvent.VK_B);
+                r.keyRelease(KeyEvent.VK_B);
+                break;
+            case 'n':
+                r.keyPress(KeyEvent.VK_N);
+                r.keyRelease(KeyEvent.VK_N);
+                break;
             case ',':
                 r.keyPress(KeyEvent.VK_COMMA);
                 r.keyRelease(KeyEvent.VK_COMMA);
@@ -150,22 +188,11 @@ public class RobotTest {
                 r.keyPress(KeyEvent.VK_MINUS);
                 r.keyRelease(KeyEvent.VK_MINUS);
                 break;
-            case '!':
-                r.keyPress(KeyEvent.VK_EXCLAMATION_MARK);
-                r.keyRelease(KeyEvent.VK_EXCLAMATION_MARK);
-                break;
-                //check ? and add ä and ö + caps
-//            case '?':
-//                r.keyPress(KeyEvent.VK_DEAD_TILDE);
-//                r.keyPress(KeyEvent.VK_QUOTEDBL);
-//                r.keyRelease(KeyEvent.VK_QUOTEDBL);
-//                r.keyRelease(KeyEvent.VK_DEAD_TILDE);
-//                break;
             default:
                 r.keyPress(KeyEvent.VK_F);
                 r.keyRelease(KeyEvent.VK_F);
                 break;
         }
-        Thread.sleep(0);
+        Thread.sleep(10);
     }
 }
