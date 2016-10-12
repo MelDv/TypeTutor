@@ -15,6 +15,7 @@ Päivä | Tunnit | Kuvaus
 7.10.2016 | 10 | Käyttöliittymä kokonaan uusiksi, ohjelma toimintakuntoon.
 8.10.2016 | 10 | Toiminnan korjailua, JUnit testien tekemistä. java.awt.Robot-luokan opettelua ja testaajarobotin tekemistä.
 9.10.2016 | 4 | Javadocien tekemistä, Checkstylen ja pomin päivitys, luokkakaavion viimeistely, Robot-luokan viimeistely ja pieniä muutoksia. Dokumentoinnin päivitys.
+12.10.2016 | 3 | Letters-luokan korjaaminen (hakee kirjaimet taulukosta eikä if-lauseilla), isojen kirjaimien ja välimerkkien lisääminen, robotille lisää kirjaimia.
 
 
 
