@@ -53,7 +53,7 @@ public class Listener implements KeyListener {
             user.deductPoint();
         }
 
-        sendToRobot();
+        //sendToRobot();
         points.setText(String.valueOf(user.getPoints()));
         level.setText(String.valueOf(user.countLevelbyPoints()));
         writingArea.setText("");
