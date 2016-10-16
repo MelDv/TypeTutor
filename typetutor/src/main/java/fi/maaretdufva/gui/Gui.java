@@ -2,8 +2,6 @@ package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.User;
-import java.awt.Color;
-import static java.awt.Color.red;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -51,7 +49,6 @@ public class Gui implements Runnable {
 
     private void createComponents(Container container) {
         User user = new User("TestUser");
-        Game game = new Game(user);
 
         // Creates buttons and areas
         JButton register = new JButton("Register");
@@ -63,7 +60,6 @@ public class Gui implements Runnable {
         JTextArea text = new JTextArea();
         text.setEditable(false);
         text.setFont(new Font("Serif", Font.PLAIN, 18));
-        text.setText(game.getTypeThis());
 
         JLabel basicGuide = new JLabel("Type the text below using ten fingers.");
         container.add(basicGuide);

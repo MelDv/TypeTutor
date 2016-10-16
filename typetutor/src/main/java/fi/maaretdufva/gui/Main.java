@@ -19,10 +19,5 @@ public class Main {
 
         Gui gui = new Gui();
         SwingUtilities.invokeLater(gui);
-//        User user = new User("");
-//
-//        System.out.println("Tervetuloa kirjoittamaan! ");
-//        Game game = new Game(user);
-//        game.start();
     }
 }

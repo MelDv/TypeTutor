@@ -55,7 +55,8 @@ public class Listener implements KeyListener {
 
         //sendToRobot();
         points.setText(String.valueOf(user.getPoints()));
-        level.setText(String.valueOf(user.countLevelbyPoints()));
+        level.setText(String.valueOf(game.getLevel()));
+        user.setLevel(game.getLevel());
         writingArea.setText("");
         text.setText(game.getTypeThis());
         letters.setText(game.getLettersLearned());

@@ -48,15 +48,6 @@ public class Game {
     }
 
     /**
-     * Starts the logical functions by calling methods determineLevel() and
-     * sendToListener().
-     */
-    public void start() {
-        determineLevel();
-        sendToListener();
-    }
-
-    /**
      * Determines the user's level.
      *
      * @return level as an integer.
@@ -122,6 +113,10 @@ public class Game {
 
     public String getTypeThis() {
         return typeThis;
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public String getLettersLearned() {
