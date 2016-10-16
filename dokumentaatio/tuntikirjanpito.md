@@ -16,7 +16,8 @@ Päivä | Tunnit | Kuvaus
 8.10.2016 | 10 | Toiminnan korjailua, JUnit testien tekemistä. java.awt.Robot-luokan opettelua ja testaajarobotin tekemistä.
 9.10.2016 | 4 | Javadocien tekemistä, Checkstylen ja pomin päivitys, luokkakaavion viimeistely, Robot-luokan viimeistely ja pieniä muutoksia. Dokumentoinnin päivitys.
 12.10.2016 | 3 | Letters-luokan korjaaminen (hakee kirjaimet taulukosta eikä if-lauseilla), isojen kirjaimien ja välimerkkien lisääminen, robotille lisää kirjaimia.
-
+14.10.2016 | 4 | Letters-luokan parantelua edelleen, opittujen kirjaimien lisääminen kuuntelijaan ja testien päivitys.
+16.10.2016 | 4 | Pit ja Checkstyle, käyttöohje, rakennekuvaus ja jar-tiedosto.
 
 
 

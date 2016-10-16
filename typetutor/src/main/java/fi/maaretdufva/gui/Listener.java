@@ -29,17 +29,19 @@ public class Listener implements KeyListener {
     private JLabel level;
     private Game game;
     private User user;
+    private JLabel letters;
 
     /**
      * Constructor.
      */
-    Listener(User user, JTextArea writingArea, JTextArea text, JLabel points, JLabel level) {
+    Listener(User user, JTextArea writingArea, JTextArea text, JLabel points, JLabel level, JLabel letters) {
         this.writingArea = writingArea;
         this.text = text;
         this.user = user;
         this.game = new Game(user);
         this.points = points;
         this.level = level;
+        this.letters = letters;
     }
 
     @Override
@@ -51,11 +53,12 @@ public class Listener implements KeyListener {
             user.deductPoint();
         }
 
-        //sendToRobot();
+        sendToRobot();
         points.setText(String.valueOf(user.getPoints()));
         level.setText(String.valueOf(user.countLevelbyPoints()));
         writingArea.setText("");
         text.setText(game.getTypeThis());
+        letters.setText(game.getLettersLearned());
     }
 
     /**

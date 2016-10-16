@@ -12,7 +12,6 @@ import java.util.Map;
  */
 public class AllUsers {
 
-    private User user;
     private Map<String, User> all;
 
     /**
@@ -23,7 +22,6 @@ public class AllUsers {
      * parameter to create a list of users.
      */
     public AllUsers(User user) {
-        this.user = user;
         this.all = new HashMap<>();
         this.all.put(user.getUsername(), user);
     }
@@ -121,9 +119,10 @@ public class AllUsers {
             return "This user list is empty";
         }
 
-        for (int i = 0; i < all.size(); i++) {
-            userlist.append(user.toString() + "\n");
+        for (User user : all.values()) {
+            userlist = userlist.append(user.toString()).append("\n");
         }
+
         return userlist.toString();
     }
 }

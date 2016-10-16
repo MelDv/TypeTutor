@@ -36,6 +36,7 @@ public class RobotTest {
     public RobotTest() {
         this.type = 's';
     }
+
     /**
      * This class can be used as Main class when running the program for test
      * purposes. This is the main method.
@@ -57,6 +58,7 @@ public class RobotTest {
             r.keyRelease(10);
         }
     }
+
     /**
      * This method tells the robot which key to press.
      *

@@ -18,6 +18,7 @@ public class Game {
     private String typeThis;
     private int level;
     private char typeLetter;
+    private String learned;
 
     /**
      * Constructor.
@@ -29,6 +30,7 @@ public class Game {
         this.typeThis = null;
         this.level = 0;
         this.typeLetter = 's';
+        this.learned = "";
     }
 
     /**
@@ -62,12 +64,6 @@ public class Game {
     public int determineLevel() {
         if (this.level != user.countLevelbyPoints()) {
             this.level = user.countLevelbyPoints();
-//            if (level < 0) {
-//                level = 0;
-//            }
-//            if (level > 17) {
-//                level = 17;
-//            }
             Tutorial tut = new Tutorial();
             tut.letterTutorials(level);
         }
@@ -76,11 +72,21 @@ public class Game {
 
     /**
      * Determines a string by calling method determineString in Letters class.
-     * Saves the string into a private parameter.
+     * Saves the string into a private parameter 'typeThis'.
      */
     public void determineTypeThis() {
         Letters letters = new Letters();
         typeThis = letters.determineString(level);
+    }
+    
+    /**
+     * Determines a string of learned lettersby calling method getLearnedLetters in Letters class.
+     * Saves the string into a private parameter 'learned'.
+     */
+    private String determineLettersLearned() {
+        Letters letters = new Letters();
+        this.learned = letters.getLearnedLetters(level);
+        return learned;
     }
 
     /**
@@ -94,12 +100,14 @@ public class Game {
         if (typeThis == null) {
             determineLevel();
             determineTypeThis();
+            determineLettersLearned();
             typeLetter = typeThis.charAt(0);
             return typeLetter;
         } else if (typeThis.length() == 1) {
             typeLetter = typeThis.charAt(0);
             determineLevel();
             determineTypeThis();
+            determineLettersLearned();
             return typeLetter;
         }
 
@@ -114,5 +122,9 @@ public class Game {
 
     public String getTypeThis() {
         return typeThis;
+    }
+
+    public String getLettersLearned() {
+        return this.learned;
     }
 }

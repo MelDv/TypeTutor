@@ -39,11 +39,11 @@ public class GameTest {
         u.setPoints(3000);
         assertEquals(15, g.determineLevel());
         u.setPoints(5800);
-        assertEquals(17, g.determineLevel());
+        assertEquals(29, g.determineLevel());
         u.setPoints(17040);
-        assertEquals(17, g.determineLevel());
+        assertEquals(85, g.determineLevel());
         u.setLevel(44);
-        assertEquals(17, g.determineLevel());
+        assertEquals(85, g.determineLevel());
     }
 
     @Test

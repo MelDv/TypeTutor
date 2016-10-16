@@ -2,6 +2,8 @@ package fi.maaretdufva.gui;
 
 import fi.maaretdufva.logic.Game;
 import fi.maaretdufva.users.User;
+import java.awt.Color;
+import static java.awt.Color.red;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -78,10 +80,10 @@ public class Gui implements Runnable {
 
         //These don't work with a listener yet
         JLabel letterInfo = new JLabel("Letters learned:");
-        JLabel letters = new JLabel("-");
+        JLabel letters = new JLabel("<html><font color='#cccccc'>ABCD EFGH IJKL MNOP QRST UVWX YZÅÄÖ ?!.,-</font></html>");
 
         //Sends to listener
-        Listener typedLetter = new Listener(user, writingArea, text, points, level);
+        Listener typedLetter = new Listener(user, writingArea, text, points, level, letters);
         writingArea.addKeyListener(typedLetter);
 
         //Layout: first horizontal, then vertical. 

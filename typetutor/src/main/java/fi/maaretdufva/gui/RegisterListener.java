@@ -28,7 +28,6 @@ public class RegisterListener implements ActionListener {
         // Get user info. To be implemented.
 
         User user = new User("Matti");
-        Game game = new Game(user);
         System.out.println(user);
     }
 }

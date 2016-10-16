@@ -14,81 +14,166 @@ public class LettersTest {
         lt = new Letters();
         s = "";
     }
-//
-//    @Test
-//    public void determineStringGivesRightString() {
-//        assertTrue(stringTest(lt.determineString(-22), "jf"));
-//        assertTrue(stringTest(lt.determineString(0), "jf"));
-//        assertTrue(stringTest(lt.determineString(10), "mv"));
-//        assertTrue(stringTest(lt.determineString(4), "jfkdls"));
-//        assertTrue(stringTest(lt.determineString(7), "jfkdlsöa"));
-//        assertTrue(stringTest(lt.determineString(16), "pqz-"));
-//    }
-//
-//    @Test
-//    public void randomStringGivesCorrectStringLength() {
-//        String temp = lt.randomString("jf", 3);
-//        assertEquals(temp.length(), 39);
-//        temp = lt.randomString("jfkdlsöaru", 5);
-//        assertEquals(temp.length(), 59);
-//        temp = lt.randomString("jfkdlsöarumv", 15);
-//        assertEquals(temp.length(), 159);
-//        temp = lt.randomString("urmv", 3);
-//        assertEquals(temp.length(), 39);
-//    }
-//
-//    @Test
-//    public void randomStringLastCharNotSpace() {
-//        String temp = lt.randomString("jf", 3);
-//        if (temp.charAt(temp.length() - 1) == ' ') {
-//            fail();
-//        }
-//        temp = lt.randomString("jfkdlsöarumviecxow,.pqz-", 6);
-//        if (temp.charAt(temp.length() - 1) == ' ') {
-//            fail();
-//        }
-//        temp = lt.randomString("urmv", 2);
-//        if (temp.charAt(temp.length() - 1) == ' ') {
-//            fail();
-//        }
-//        temp = lt.randomString("öa", 10);
-//        if (temp.charAt(temp.length() - 1) == ' ') {
-//            fail();
-//        }
-//    }
-//
-//    @Test
-//    public void randomStringFirstCharNotSpace() {
-//        String temp = lt.randomString("jf", 3);
-//        if (temp.charAt(0) == ' ') {
-//            fail();
-//        }
-//        temp = lt.randomString("jfkdlsöarumv", 1);
-//        if (temp.charAt(0) == ' ') {
-//            fail();
-//        }
-//        temp = lt.randomString("iec", 4);
-//        if (temp.charAt(0) == ' ') {
-//            fail();
-//        }
-//        temp = lt.randomString("owx.", 10);
-//        if (temp.charAt(0) == ' ') {
-//            fail();
-//        }
-//    }
 
-    private boolean stringTest(String testThis, String original) {
-        String temp = "";
+    @Test
+    public void determineLevelGivesCorrectLevel() {
+        assertEquals(lt.determineLevel(-99), 0);
+        assertEquals(lt.determineLevel(0), 0);
+        assertEquals(lt.determineLevel(1), 1);
+        assertEquals(lt.determineLevel(15), 15);
+        assertEquals(lt.determineLevel(25), 25);
+        assertEquals(lt.determineLevel(26), 25);
+        assertEquals(lt.determineLevel(30), 25);
+        assertEquals(lt.determineLevel(99), 25);
+        assertEquals(lt.determineLevel(19845), 25);
+    }
 
-        for (int i = 0; i < testThis.length(); i++) {
-            String letter = String.valueOf(testThis.charAt(i));
-            if (original.contains(letter) && !temp.contains(letter)) {
-                temp = temp + letter;
-            }
+    @Test
+    public void determineStringUsesCorrectLetters() {
+        lt.determineString(-22);
+        assertEquals(lt.getLetters(), "jf");
+        lt.determineString(0);
+        assertEquals(lt.getLetters(), "jf");
+        lt.determineString(4);
+        assertEquals(lt.getLetters(), "jfkdls");
+        lt.determineString(7);
+        assertEquals(lt.getLetters(), "hg");
+        lt.determineString(10);
+        assertEquals(lt.getLetters(), "hgjfkdlsööaaää");
+        lt.determineString(16);
+        assertEquals(lt.getLetters(), "jfkdlsööaaatyyruueeeii");
+        lt.determineString(24);
+        assertEquals(lt.getLetters(), "mvcxznb");
+        lt.determineString(25);
+        assertEquals(lt.getLetters(), "jfkdlsööaaaatyruuueeeeiiioowpqåmvcxznb");
+        lt.determineString(66);
+        assertEquals(lt.getLetters(), "jfkdlsööaaaatyruuueeeeiiioowpqåmvcxznb");
+    }
+
+    @Test
+    public void randomStringGivesCorrectStringLength() {
+        lt.determineString(0);
+        String[] temp = lt.randomString();
+        assertEquals(temp.length, 15);
+        String word = temp[5];
+        assertEquals(word.length(), 4);
+        lt.determineString(2);
+        temp = lt.randomString();
+        word = temp[5];
+        assertEquals(word.length(), 4);
+        lt.determineString(7);
+        temp = lt.randomString();
+        word = temp[5];
+        assertEquals(word.length(), 4);
+        lt.determineString(13);
+        temp = lt.randomString();
+        word = temp[5];
+        assertEquals(word.length(), 4);
+        lt.determineString(14);
+        temp = lt.randomString();
+        word = temp[5];
+        assertEquals(word.length(), 4);
+        lt.determineString(21);
+        temp = lt.randomString();
+        word = temp[5];
+        assertEquals(word.length(), 4);
+    }
+
+    @Test
+    public void randomStringLastCharNotSpace() {
+        lt.determineString(-8);
+        String[] temp = lt.randomString();
+        String word = temp[7];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
         }
-        if (temp.length() == original.length()) {
-            return true;
+        lt.determineString(2);
+        temp = lt.randomString();
+        word = temp[14];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
         }
-        return false;
+        lt.determineString(8);
+        temp = lt.randomString();
+        word = temp[0];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
+        }
+        lt.determineString(13);
+        temp = lt.randomString();
+        word = temp[5];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
+        }
+        lt.determineString(17);
+        temp = lt.randomString();
+        word = temp[14];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
+        }
+        lt.determineString(22);
+        temp = lt.randomString();
+        word = temp[11];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
+        }
+        lt.determineString(26);
+        temp = lt.randomString();
+        word = temp[3];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
+        }
+        lt.determineString(44);
+        temp = lt.randomString();
+        word = temp[1];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
+        }
+        lt.determineString(15783);
+        temp = lt.randomString();
+        word = temp[4];
+        if (word.charAt(word.length() - 1) == ' ') {
+            fail();
+        }
+    }
+
+    @Test
+    public void randomStringFirstCharNotSpace() {
+        lt.determineString(-8);
+        String[] temp = lt.randomString();
+        String word = temp[0];
+        if (word.charAt(0) == ' ') {
+            fail();
+        }
+        lt.determineString(2);
+        temp = lt.randomString();
+        word = temp[0];
+        if (word.charAt(0) == ' ') {
+            fail();
+        }
+        lt.determineString(4);
+        temp = lt.randomString();
+        word = temp[0];
+        if (word.charAt(0) == ' ') {
+            fail();
+        }
+        lt.determineString(16);
+        temp = lt.randomString();
+        word = temp[0];
+        if (word.charAt(0) == ' ') {
+            fail();
+        }
+        lt.determineString(25);
+        temp = lt.randomString();
+        word = temp[0];
+        if (word.charAt(0) == ' ') {
+            fail();
+        }
+        lt.determineString(15783);
+        temp = lt.randomString();
+        word = temp[0];
+        if (word.charAt(0) == ' ') {
+            fail();
+        }
     }
 }

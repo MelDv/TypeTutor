@@ -1,7 +1,5 @@
 package fi.maaretdufva.logic;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 /**
@@ -18,55 +16,54 @@ import java.util.Random;
  */
 public class Letters {
 
+    private int level;
     private String letters;
-    private Map<Integer, String> repetition;
     private String[] words;
+    private final String[] letterSequences;
+    private final String[] learnedLetterSequences;
+    private String learnedLetters;
 
     /**
      * Constructor.
      */
     public Letters() {
+        this.level = 0;
         this.letters = "";
-        this.repetition = new HashMap<>();
-        this.words = new String[24];
+        this.words = new String[15];
+        this.letterSequences = new String[]{"jf", "kd", "jfkd", "ls", "jfkdls",
+            "aaöä", "lsöaä", "hg", ",-.!?", "hgjfkdls",
+            "hgjfkdlsööaaää", "ru", "ie", "urie", "yt",
+            "tyruueeii", "jfkdlsööaaatyyruueeeii", "ow", "pqå", "owpqå",
+            "jfkdlsööaaatyyruueeeiioowpqå", "mv", "cxz", "nb", "mvcxznb",
+            "jfkdlsööaaaatyruuueeeeiiioowpqåmvcxznb"};
+        this.learnedLetterSequences = new String[]{"---- ---- ---- ---- ---- ---- -----", "---- -F-- -J-- ---- ---- ---- -----",
+            "---D -F-- -JK- ---- ---- ---- -----", "---D -F-- -JK- ---- ---- ---- -----",
+            "---D -F-- -JKL ---- --S- ---- -----", "---D -F-- -JKL ---- --S- ---- -----",
+            "A--D -F-- -JKL ---- --S- ---- ---ÄÖ", "A--D -F-- -JKL ---- --S- ---- ---ÄÖ",
+            "A--D -FGH -JKL ---- --S- ---- ---ÄÖ", "A--D -FGH -JKL ---- --S- ---- ---ÄÖ ?!.,-", "A--D -FGH -JKL ---- --S- ---- ---ÄÖ ?!.,-", "A--D -FGH -JKL ---- --S- ---- ---ÄÖ ?!.,-",
+            "A--D -FGH -JKL ---- -RS- U--- ---ÄÖ ?!.,-",
+            "A--D EFGH IJKL ---- -RS- U--- ---ÄÖ ?!.,-", "A--D EFGH IJKL ---- -RS- U--- ---ÄÖ ?!.,-",
+            "A--D EFGH IJKL ---- -RST U--- Y--ÄÖ ?!.,-", "A--D EFGH IJKL ---- -RST U--- Y--ÄÖ ?!.,-", "A--D EFGH IJKL ---- -RST U--- Y--ÄÖ ?!.,-",
+            "A--D EFGH IJKL --O- -RST U-W- Y--ÄÖ ?!.,-",
+            "A--D EFGH IJKL --OP QRST U-W- Y-ÅÄÖ ?!.,-", "A--D EFGH IJKL --OP QRST U-W- Y-ÅÄÖ ?!.,-", "A--D EFGH IJKL --OP QRST U-W- Y-ÅÄÖ ?!.,-",
+            "A--D EFGH IJKL M-OP QRST UVW- Y-ÅÄÖ ?!.,-",
+            "A-CD EFGH IJKL M-OP QRST UVWX YZÅÄÖ ?!.,-",
+            "ABCD EFGH IJKL MNOP QRST UVWX YZÅÄÖ ?!.,-", "ABCD EFGH IJKL MNOP QRST UVWX YZÅÄÖ ?!.,-"};
+        this.learnedLetters = "ABCD EFGH IJKL MNOP QRST UVWX YZÅÄÖ";
     }
 
-    /**
-     * This class will set the permitted repetition frequence for a certain
-     * word.
-     */
-    public void setRepetition() {
-    }
-
-    /**
-     * Thiss class will return the real repetition value as an integer, for a
-     * word given as parameter.
-     *
-     * @param sana to be sought for from the repetition map.
-     * @return repetition value from the map.
-     */
-    public int getRepetition(String sana) {
-        return 0;
-    }
-
-    //Caps missing for now.
     /**
      * Determines the characters which the user should learn next based on the
      * level given as parameter. Calls methods randomWords and randomString.
      *
-     * @param level Game class provides level information
+     * @param givenLevel Game class provides level information.
      * @return the characters as a String that can be used in the next String to
-     * be typed;
+     * be typed.
      */
-    public String determineString(int level) {
-        if (level < 0) {
-            level = 0;
-        }
-        if (level > words.length) {
-            level = words.length;
-        }
+    public String determineString(int givenLevel) {
+        determineLevel(givenLevel);
 
-        letter(level);
+        this.letters = letterSequences[level];
 
         if (level < 4) {
             randomString();
@@ -78,12 +75,30 @@ public class Letters {
             randomStringWithPunctuation();
         }
 
-        this.letters = "";
+        String stringOfWords = "";
         for (int i = 0; i < words.length; i++) {
-            this.letters += words[i];
+            stringOfWords += words[i];
         }
 
-        return this.letters;
+        return stringOfWords;
+    }
+
+    /**
+     * Determines the correct level based on a parameter.
+     *
+     * @param givenLevel Game class provides level information.
+     * @return the correct level.
+     */
+    public int determineLevel(int givenLevel) {
+        if (givenLevel <= 0) {
+            this.level = 0;
+        } else if (givenLevel >= letterSequences.length) {
+            this.level = letterSequences.length - 1;
+        } else {
+            this.level = givenLevel;
+        }
+
+        return this.level;
     }
 
     /**
@@ -105,10 +120,9 @@ public class Letters {
      * Creates a random Sring using characters given as a String parameter. Each
      * random word has the number of characters given as an integer parameter.
      *
-     * @param charactersToLearn A String of characters creating a return String.
      * @return a String table of ten random character sequences.
      */
-    private String[] randomString() {
+    public String[] randomString() {
         Random r = new Random();
         int wordLength = 0;
 
@@ -181,16 +195,20 @@ public class Letters {
         return words;
     }
 
-    private String letter(int level) {
-        String[] letterSequences = {"jf", "kd", "jfkd", "ls", "jfkdls",
-            "lsöaä", "hg", ",-.!?", "hgjfkdls",
-            "hgjfkdlsöaä", "ru", "ie", "urie", "yt",
-            "tyruei", "jfkdlsöatyruei", "ow", "pqå", "owpqå",
-            "jfkdlsöatyrueiopwqå", "mv", "cxz", "nb", "mvcxznb",
-            "qwertyuiopåäölkjhgfdsazxcvbnm"};
-
-        this.letters = letterSequences[level];
-        return this.letters;
+    public String getLetters() {
+        return letters;
     }
-//öaä
+
+    /**
+     * Returns the letters already learned as a String. 
+     * The String is determined based on level given as parameter.
+     * 
+     * @param givenLevel provided by Game class.
+     * @return String representation of the learned letters.
+     */
+    public String getLearnedLetters(int givenLevel) {
+        determineLevel(givenLevel);
+        this.learnedLetters = this.learnedLetterSequences[level];
+        return this.learnedLetters;
+    }
 }
