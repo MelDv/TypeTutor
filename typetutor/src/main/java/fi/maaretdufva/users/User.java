@@ -1,5 +1,7 @@
 package fi.maaretdufva.users;
 
+import java.util.Arrays;
+
 /**
  * This is a class for individual users.
  *
@@ -10,10 +12,7 @@ package fi.maaretdufva.users;
 public class User {
 
     private String username;
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String password;
+    private char[] password;
     private int points;
     private int level;
 
@@ -24,45 +23,17 @@ public class User {
      */
     public User(String username) {
         this.username = username;
-        this.firstname = "";
-        this.lastname = "";
-        this.email = "";
-        this.password = "1234";
+        this.password = new char[]{'1', '2', '3', '4'};
         this.points = 0;
         this.level = 0;
     }
 
-    /**
-     * Sets several parameters for the user: first and last name and email.
-     *
-     * @param firtsname Given by user as a String.
-     * @param lastname Given by user as a String.
-     * @param email Given by user as a String.
-     */
-    public void setAll(String firtsname, String lastname, String email) {
-        this.firstname = firtsname;
-        this.lastname = lastname;
-        this.email = email;
-    }
-
-    public void setFirstname(String newFirstname) {
-        this.firstname = newFirstname;
-    }
-
-    public void setUsername(String newName) {
-        this.username = newName;
-    }
-
-    public void setLastname(String newLastname) {
-        this.lastname = newLastname;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String newPassword) {
+    public void setPassword(char[] newPassword) {
         this.password = newPassword;
+    }
+
+    public char[] getPassword() {
+        return password;
     }
 
     public void setPoints(int newPoints) {
@@ -94,12 +65,6 @@ public class User {
         if (level < temp) {
             level = temp;
         }
-//        if (level < 0) {
-//            level = 0;
-//        }
-//        if (level > 17) {
-//            level = 17;
-//        }
         return level;
     }
 
@@ -115,18 +80,6 @@ public class User {
         return this.username;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
     public int getPoints() {
         return this.points;
     }
@@ -137,8 +90,10 @@ public class User {
      * @param testThis The password given by user.
      * @return boolean value true, if the password is correct. False if not.
      */
-    public boolean testPassword(String testThis) {
-        if (this.password.equals(testThis)) {
+    public boolean testPassword(char[] testThis) {
+        if (testThis == null) {
+            return false;
+        } else if (Arrays.equals(this.password, testThis)) {
             return true;
         }
         return false;
@@ -146,7 +101,6 @@ public class User {
 
     @Override
     public String toString() {
-        return this.username + ": " + this.firstname + " "
-                + this.lastname + ", points: " + this.points + "\n email: " + this.email;
+        return this.username + ": " + ", points: " + this.points + "level: " + this.level;
     }
 }

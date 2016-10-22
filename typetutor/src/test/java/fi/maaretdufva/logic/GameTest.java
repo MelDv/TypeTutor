@@ -47,6 +47,42 @@ public class GameTest {
     }
 
     @Test
+    public void determineTypeThisGivesCorrectString() {
+        g.determineTypeThis();
+        String typ = g.getTypeThis();
+
+        for (int i = 0; i < typ.length(); i++) {
+            if (typ.charAt(i) != 'j' || typ.charAt(i) != 'f') {
+                assertFalse(false);
+            } else {
+                assertTrue(true);
+            }
+        }
+    }
+
+    @Test
+    public void determineLettersLearnedGivesCorrectString() {
+        g.determineLettersLearned();
+        String typ = g.getLettersLearned();
+
+        for (int i = 0; i < typ.length(); i++) {
+            if (typ.charAt(i) != 'j' || typ.charAt(i) != 'f') {
+                assertFalse(false);
+            } else {
+                assertTrue(true);
+            }
+        }
+    }
+
+    @Test
+    public void sendToListenerGivesCorrectChar() {
+        g.setTypeThis("hgf");
+        assertEquals(g.sendToListener(), 'h');
+        assertEquals(g.sendToListener(), 'g');
+        assertEquals(g.sendToListener(), 'f');
+    }
+
+    @Test
     public void sendToListenerReturnsCorrectly() {
         char test = 'S';
         test = g.sendToListener();

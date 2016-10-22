@@ -1,5 +1,6 @@
 package fi.maaretdufva.users;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Before;
@@ -21,13 +22,15 @@ public class AllUsersTest {
         user = new User("Matti");
         user1 = new User("Riina");
         user2 = new User("Kaija");
-        au = new AllUsers(user);
+        au = new AllUsers();
         all = new HashMap<>();
         all.put(user.getUsername(), user);
     }
 
+    //Only works if the file is empty! Tests don't read the file.
     @Test
     public void getUsersReturnsMapOfUsers() {
+        au.addUser(user);
         assertEquals(au.getUsers(), all);
         au.addUser(user1);
         all.put("Riina", user1);
@@ -42,6 +45,7 @@ public class AllUsersTest {
 
     @Test
     public void deleteUserDeletesUser() {
+        au.addUser(user1);
         au.deleteUser(user1);
         if (au.findUser(user1.getUsername())) {
             fail();
@@ -53,6 +57,7 @@ public class AllUsersTest {
         if (au.findUser("Pekka")) {
             fail();
         }
+        au.addUser(user);
         assertTrue(au.findUser("Matti") == true);
     }
 
@@ -69,16 +74,24 @@ public class AllUsersTest {
 
     @Test
     public void numberOfUsersGivesCorrectNummber() {
-        au.addUser(user1);
-        assertEquals(au.numberOfUsers(), 2);
-        au.deleteUser(user);
-        au.deleteUser(user1);
         assertEquals(au.numberOfUsers(), 0);
-    }
-
-    @Test
-    public void toStringReturnsCorrectString() {
+        au.addUser(user1);
+        assertEquals(au.numberOfUsers(), 1);
         au.deleteUser(user);
-        assertEquals("This user list is empty", au.toString());
+        au.addUser(user1);
+        au.addUser(user2);
+        assertEquals(au.numberOfUsers(), 2);
+    }
+    
+    @Test 
+    public void writeFileAndReadFileWork() {
+        User u = new User("Doom");
+        u.setLevel(4);
+        u.addPoint();
+        char c[] = {'d', '2', 'R'};
+        u.setPassword(c);
+        au.writeToFile(user);
+        au.addUser(u);
+        assertEquals(au.numberOfUsers(), 1);
     }
 }

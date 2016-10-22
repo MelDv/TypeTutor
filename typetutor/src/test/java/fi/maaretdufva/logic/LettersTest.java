@@ -16,16 +16,25 @@ public class LettersTest {
     }
 
     @Test
-    public void determineLevelGivesCorrectLevel() {
-        assertEquals(lt.determineLevel(-99), 0);
-        assertEquals(lt.determineLevel(0), 0);
-        assertEquals(lt.determineLevel(1), 1);
-        assertEquals(lt.determineLevel(15), 15);
-        assertEquals(lt.determineLevel(25), 25);
-        assertEquals(lt.determineLevel(26), 25);
-        assertEquals(lt.determineLevel(30), 25);
-        assertEquals(lt.determineLevel(99), 25);
-        assertEquals(lt.determineLevel(19845), 25);
+    public void determineStringGivesCorrectString() {
+        String typ = lt.determineString(3);
+
+        for (int i = 0; i < typ.length(); i++) {
+            if (typ.charAt(i) != 'l' || typ.charAt(i) != 's') {
+                assertFalse(false);
+            } else {
+                assertTrue(true);
+            }
+        }
+
+        typ = lt.determineString(11);
+        for (int i = 0; i < typ.length(); i++) {
+            if (typ.charAt(i) != 'r' || typ.charAt(i) != 'u') {
+                assertFalse(false);
+            } else {
+                assertTrue(true);
+            }
+        }
     }
 
     @Test
@@ -48,6 +57,19 @@ public class LettersTest {
         assertEquals(lt.getLetters(), "jfkdlsööaaaatyruuueeeeiiioowpqåmvcxznb");
         lt.determineString(66);
         assertEquals(lt.getLetters(), "jfkdlsööaaaatyruuueeeeiiioowpqåmvcxznb");
+    }
+
+    @Test
+    public void determineLevelGivesCorrectLevel() {
+        assertEquals(lt.determineLevel(-99), 0);
+        assertEquals(lt.determineLevel(0), 0);
+        assertEquals(lt.determineLevel(1), 1);
+        assertEquals(lt.determineLevel(15), 15);
+        assertEquals(lt.determineLevel(25), 25);
+        assertEquals(lt.determineLevel(26), 25);
+        assertEquals(lt.determineLevel(30), 25);
+        assertEquals(lt.determineLevel(99), 25);
+        assertEquals(lt.determineLevel(19845), 25);
     }
 
     @Test

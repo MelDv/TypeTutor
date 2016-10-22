@@ -5,12 +5,13 @@ import fi.maaretdufva.users.User;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
@@ -36,8 +37,8 @@ public class Gui implements Runnable {
 
     @Override
     public void run() {
-        frame = new JFrame("TypeTutor");
-        frame.setPreferredSize(new Dimension(600, 300));
+        frame = new JFrame("TypeTutor: Hello new user!");
+        frame.setPreferredSize(new Dimension(550, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,14 +49,21 @@ public class Gui implements Runnable {
     }
 
     private void createComponents(Container container) {
-        User user = new User("TestUser");
+        User user = new User("temp");
+        Game game = new Game(user);
 
         // Creates buttons and areas
-        JButton register = new JButton("Register");
-        register.addActionListener(new RegisterListener());
+        JTextField giveUsername = new JTextField();
+        JPasswordField givePassword = new JPasswordField();
+        JLabel username = new JLabel("Username: ");
+        JLabel password = new JLabel("Password: ");
 
         JButton login = new JButton("Login");
-        JButton test = new JButton("Test");
+        JButton register = new JButton("Register");
+
+        RegisterListener reglis = new RegisterListener(user, game, frame, register, giveUsername, givePassword, login);
+        register.addActionListener(reglis);
+        login.addActionListener(reglis);
 
         JTextArea text = new JTextArea();
         text.setEditable(false);
@@ -74,34 +82,34 @@ public class Gui implements Runnable {
         JLabel levelLabel = new JLabel("Level");
         JLabel level = new JLabel("0");
 
-        //These don't work with a listener yet
         JLabel letterInfo = new JLabel("Letters learned:");
         JLabel letters = new JLabel("<html><font color='#cccccc'>ABCD EFGH IJKL MNOP QRST UVWX YZÅÄÖ ?!.,-</font></html>");
 
         //Sends to listener
-        Listener typedLetter = new Listener(user, writingArea, text, points, level, letters);
+        Listener typedLetter = new Listener(user, game, writingArea, text, points, level, letters);
         writingArea.addKeyListener(typedLetter);
 
         //Layout: first horizontal, then vertical. 
-        writingArea.setBorder(BorderFactory.createEmptyBorder(0, 0, 30, 20));
-
         GroupLayout layout = new GroupLayout(container);
         container.setLayout(layout);
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
 
         layout.setHorizontalGroup(layout.createSequentialGroup()
-                .addComponent(register)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                        .addComponent(login)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(basicGuide)
-                                .addComponent(text, 300, 300, 300)
-                                .addComponent(writingArea)
-                                .addComponent(letterInfo)
-                                .addComponent(letters)))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addComponent(test)
+                        .addComponent(username)
+                        .addComponent(password))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(giveUsername)
+                        .addComponent(givePassword)
+                        .addComponent(basicGuide)
+                        .addComponent(text, 300, 300, 300)
+                        .addComponent(writingArea)
+                        .addComponent(letterInfo)
+                        .addComponent(letters))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(register)
+                        .addComponent(login)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(pointsLabel)
                                 .addComponent(points))
@@ -111,14 +119,18 @@ public class Gui implements Runnable {
                                         .addComponent(level))))
         );
 
-        layout.linkSize(SwingConstants.HORIZONTAL, register, login, test);
+        layout.linkSize(SwingConstants.HORIZONTAL, register, login);
         layout.linkSize(SwingConstants.HORIZONTAL, basicGuide, text, writingArea, letters);
 
         layout.setVerticalGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(register)
-                        .addComponent(login)
-                        .addComponent(test))
+                        .addComponent(username)
+                        .addComponent(giveUsername)
+                        .addComponent(register))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(password)
+                        .addComponent(givePassword)
+                        .addComponent(login))
                 .addGroup(layout.createSequentialGroup()
                         .addComponent(basicGuide)
                         .addComponent(text)
@@ -135,12 +147,7 @@ public class Gui implements Runnable {
                                         .addComponent(letters))))
         );
 
-        frame.setTitle("TypeTutor");
         frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    }
-
-    public JFrame getFrame() {
-        return frame;
     }
 }

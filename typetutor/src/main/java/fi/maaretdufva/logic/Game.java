@@ -28,23 +28,17 @@ public class Game {
     public Game(User givenUser) {
         this.user = givenUser;
         this.typeThis = null;
-        this.level = 0;
+        this.level = user.getLevel();
         this.typeLetter = 's';
         this.learned = "";
-    }
-
-    /**
-     * Constructor.
-     */
-    public Game() {
     }
 
     public void setUser(User user) {
         this.user = user;
     }
 
-    public User getUser() {
-        return this.user;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     /**
@@ -55,8 +49,6 @@ public class Game {
     public int determineLevel() {
         if (this.level != user.countLevelbyPoints()) {
             this.level = user.countLevelbyPoints();
-            Tutorial tut = new Tutorial();
-            tut.letterTutorials(level);
         }
         return this.level;
     }
@@ -69,12 +61,14 @@ public class Game {
         Letters letters = new Letters();
         typeThis = letters.determineString(level);
     }
-    
+
     /**
-     * Determines a string of learned lettersby calling method getLearnedLetters in Letters class.
-     * Saves the string into a private parameter 'learned'.
+     * Determines a string of learned lettersby calling method getLearnedLetters
+     * in Letters class. Saves the string into a private parameter 'learned'.
+     *
+     * @return String of letters learned.
      */
-    private String determineLettersLearned() {
+    public String determineLettersLearned() {
         Letters letters = new Letters();
         this.learned = letters.getLearnedLetters(level);
         return learned;
@@ -121,5 +115,13 @@ public class Game {
 
     public String getLettersLearned() {
         return this.learned;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setTypeThis(String typeThis) {
+        this.typeThis = typeThis;
     }
 }

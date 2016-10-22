@@ -11,7 +11,9 @@ import javax.swing.JTextArea;
 import robots.RobotTest;
 
 /*
- * This is the action listener class. 
+ * This is a keylistener class for the main game window. It listen's to what 
+ * the user types and compares it with what she is expected to type. 
+ * It also counts points and letters the user has already learned. 
  * <p>
  * This class listens to user input and updates the window accordingly. It receives character information fron Game class and compares it to user input.
  * It also sends information to the RobotTest class, when it is 
@@ -34,11 +36,11 @@ public class Listener implements KeyListener {
     /**
      * Constructor.
      */
-    Listener(User user, JTextArea writingArea, JTextArea text, JLabel points, JLabel level, JLabel letters) {
+    Listener(User user, Game game, JTextArea writingArea, JTextArea text, JLabel points, JLabel level, JLabel letters) {
         this.writingArea = writingArea;
         this.text = text;
+        this.game = game;
         this.user = user;
-        this.game = new Game(user);
         this.points = points;
         this.level = level;
         this.letters = letters;
@@ -46,7 +48,6 @@ public class Listener implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent ke) {
-
         if (ke.getKeyChar() == game.sendToListener()) {
             user.addPoint();
         } else {
@@ -54,11 +55,11 @@ public class Listener implements KeyListener {
         }
 
         //sendToRobot();
-        points.setText(String.valueOf(user.getPoints()));
+        String userpoints = String.valueOf(user.getPoints());
+        points.setText(userpoints);
         level.setText(String.valueOf(game.getLevel()));
-        user.setLevel(game.getLevel());
-        writingArea.setText("");
         text.setText(game.getTypeThis());
+        writingArea.setText("");
         letters.setText(game.getLettersLearned());
     }
 

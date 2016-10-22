@@ -13,6 +13,7 @@ public class Main {
 
     /**
      * Starts the program.
+     *
      * @param args Automatic.
      */
     public static void main(String[] args) {

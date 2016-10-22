@@ -1,7 +1,13 @@
 package fi.maaretdufva.users;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This class remembers all users.
@@ -12,24 +18,61 @@ import java.util.Map;
  */
 public class AllUsers {
 
+    private File file;
     private Map<String, User> all;
 
     /**
      * Constructor. Creates a user and a hashmap for stroring them. Adds the
-     * parameter user to the map.
+     * parameter user to the map. It takes users from file and stores them into
+     * a file.
      *
-     * @param user When the first user is created, the user is given as a
-     * parameter to create a list of users.
      */
-    public AllUsers(User user) {
+    public AllUsers() {
+        file = new File("users.txt");
+        if (!file.canExecute()) {
+            try {
+                file.createNewFile();
+                System.out.println("File not created at AllUsers constructor");
+            } catch (IOException ex) {
+                Logger.getLogger(AllUsers.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         this.all = new HashMap<>();
-        this.all.put(user.getUsername(), user);
+
+        readFile();
     }
 
     /**
-     * Constructor.
+     * Writes new users to file.
      */
-    public AllUsers() {
+    public void writeToFile(User user) {
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(file);
+            if (!all.isEmpty()) {
+                for (int i = 0; i < all.size(); i++) {
+                    String input = all.keySet().toString();
+                    writer.append(input + " \n");
+                    input = new String(user.getPassword());
+                    writer.append(input + " \n");
+                    int points = user.getPoints();
+                    input = String.valueOf(points);
+                    writer.append(input + " \n");
+                    input = String.valueOf(user.getLevel());
+                    writer.append(input + " \n");
+                }
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(AllUsers.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error in writeToFile");
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException ex) {
+                Logger.getLogger(AllUsers.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Error in writeToFile writer close");
+            }
+        }
     }
 
     public Map getUsers() {
@@ -75,7 +118,7 @@ public class AllUsers {
      * @return boolean value true if the user is in the map; false if not.
      */
     public boolean findUser(String username) {
-        if (this.all == null) {
+        if (this.all.isEmpty()) {
             return false;
         }
         if (this.all.containsKey(username)) {
@@ -112,17 +155,50 @@ public class AllUsers {
         return this.all.size();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder userlist = new StringBuilder();
-        if (all.isEmpty()) {
-            return "This user list is empty";
-        }
+    /**
+     * Reads the users from file and saves them to a map of users.
+     */
+    public void readFile() {
 
-        for (User user : all.values()) {
-            userlist = userlist.append(user.toString()).append("\n");
-        }
+        try (Scanner reader = new Scanner(file)) {
+            int lines = 0;
+            int index = 0;
+            String uname = "";
+            String passw = "";
+            String points = "";
+            String level = "";
 
-        return userlist.toString();
+            while (reader.hasNext()) {
+                if (index == 0) {
+                    uname = reader.next();
+                    index++;
+                }
+                if (index == 1) {
+                    passw = reader.next();
+                    index++;
+                }
+                if (index == 2) {
+                    points = reader.next();
+                    index++;
+                }
+                if (index == 3) {
+                    level = reader.next();
+                    index = 0;
+
+                    User knownUser = new User(uname);
+                    knownUser.setPassword(passw.toCharArray());
+                    int num = Integer.parseInt(points);
+                    knownUser.setPoints(num);
+                    num = Integer.parseInt(level);
+                    knownUser.setLevel(num);
+                    all.put(uname, knownUser);
+
+                    index = 0;
+                }
+                lines++;
+            }
+        } catch (Exception e) {
+            System.out.println("Error reading file in AllUsers readFile." + e.getMessage());
+        }
     }
 }

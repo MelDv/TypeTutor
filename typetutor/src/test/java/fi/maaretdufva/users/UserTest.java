@@ -5,31 +5,36 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UserTest {
-
+    
     static User t;
-
+    
     @Before
     public void setUp() {
         t = new User("name");
     }
-
+    
     @Test
     public void constructorSetsUsername() {
         assertEquals(t.getUsername(), "name");
     }
-
+    
     @Test
     public void constructorSetsLevel() {
-        assertEquals(t.countLevelbyPoints(), 0);
+        assertEquals(t.getLevel(), 0);
     }
-
-    public void setAllSetsCorrectInfo() {
-        t.setAll("Elli", "Etana", "etana@posti.fi");
-        assertEquals(t.getFirstname(), "Elli");
-        assertEquals(t.getLastname(), "Etana");
-        assertEquals(t.getEmail(), "etana@posti.fi");
+    
+    @Test
+    public void constructorSetsPassword() {
+        char[] a = t.getPassword();
+        String p = new String(a);
+        assertEquals(p, "1234");
     }
-
+    
+    @Test
+    public void constructorSetsPoints() {
+        assertEquals(t.getPoints(), 0);
+    }
+    
     @Test
     public void addPointAddsPoint() {
         t.setPoints(8);
@@ -41,7 +46,7 @@ public class UserTest {
         t.addPoint();
         assertEquals(13, t.getPoints());
     }
-
+    
     @Test
     public void deductPointDeductsPoint() {
         t.setPoints(8);
@@ -51,13 +56,25 @@ public class UserTest {
         t.deductPoint();
         assertEquals(5, t.getPoints());
     }
-
+    
     public void testPassword() {
-        t.setPassword("ji874kjlKKiirt9");
-        assertEquals(t.testPassword("ji874kjlKKiirt9"), true);
-        assertEquals(t.testPassword("ji874kjlKiirt9"), false);
+        char[] temp = {'d', '4', 't', 'R'};
+        t.setPassword(temp);
+        assertEquals(t.testPassword(temp), true);
+        char[] temp1 = {'d', '4', 't', 'r'};
+        assertEquals(t.testPassword(temp1), false);
+        char[] temp2 = {'Ö'};
+        t.setPassword(temp2);
+        assertEquals(t.testPassword(temp2), true);
+        char[] temp3 = {'ä'};
+        assertEquals(t.testPassword(temp3), false);
+        char[] temp4 = {'d', '4', 't', 'R', ',', '4', 'T', '!'};
+        t.setPassword(temp);
+        assertEquals(t.testPassword(temp4), true);
+        char[] temp5 = {',', '4', 'T', '!'};
+        assertEquals(t.testPassword(temp5), false);
     }
-
+    
     public void countLevelbyPointsCountsLevelinCorrectly() {
         t.setPoints(-7744);
         assertEquals(t.countLevelbyPoints(), -38);
@@ -78,33 +95,25 @@ public class UserTest {
         t.setPoints(344000);
         assertEquals(t.countLevelbyPoints(), 1720);
     }
-
+    
     @Test
     public void setterSetsLevel() {
         t.setLevel(18);
-        assertEquals(t.countLevelbyPoints(), 18);
+        assertEquals(t.getLevel(), 18);
     }
-
+    
     @Test
     public void getterReturnsLevel() {
         t.setLevel(7);
-        int level = t.countLevelbyPoints();
+        int level = t.getLevel();
         assertEquals(level, 7);
     }
-
+    
     @Test
-    public void toStringReturnsCorrectOutput() {
-        String syote = "name:  , points: 0\n email: ";
-        assertEquals(syote, t.toString());
-    }
-
-    @Test
-    public void toStringReturnsCorrectOutput1() {
-        t.setFirstname("Ville");
-        t.setLastname("Virta");
-        t.setPoints(7);
-        t.setEmail("juu@huu.fi");
-        String syote = "name: Ville Virta, points: 7\n email: juu@huu.fi";
-        assertEquals(syote, t.toString());
+    public void testPasswordWorks() {
+        char c[] = {'r', 'Y', '3'};        
+        assertFalse(t.testPassword(c));
+        t.setPassword(c);
+        assertTrue(t.testPassword(c));
     }
 }

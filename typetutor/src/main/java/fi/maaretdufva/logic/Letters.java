@@ -102,21 +102,6 @@ public class Letters {
     }
 
     /**
-     * Finds words from a list or database. The words can only contain letters
-     * given in a parameter String.
-     *
-     * @param letters Given by determineString method.
-     * @return a String of 10 words.
-     */
-    public String randomWords(String letters) {
-        String typeThis = "";
-        Random r = new Random();
-        //words with certain letters from a file or list.
-
-        return typeThis;
-    }
-
-    /**
      * Creates a random Sring using characters given as a String parameter. Each
      * random word has the number of characters given as an integer parameter.
      *
@@ -200,9 +185,9 @@ public class Letters {
     }
 
     /**
-     * Returns the letters already learned as a String. 
-     * The String is determined based on level given as parameter.
-     * 
+     * Returns the letters already learned as a String. The String is determined
+     * based on level given as parameter.
+     *
      * @param givenLevel provided by Game class.
      * @return String representation of the learned letters.
      */
