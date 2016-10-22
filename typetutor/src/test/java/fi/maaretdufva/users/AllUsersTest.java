@@ -1,6 +1,5 @@
 package fi.maaretdufva.users;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Before;
@@ -82,8 +81,8 @@ public class AllUsersTest {
         au.addUser(user2);
         assertEquals(au.numberOfUsers(), 2);
     }
-    
-    @Test 
+
+    @Test
     public void writeFileAndReadFileWork() {
         User u = new User("Doom");
         u.setLevel(4);
@@ -93,5 +92,8 @@ public class AllUsersTest {
         au.writeToFile(user);
         au.addUser(u);
         assertEquals(au.numberOfUsers(), 1);
+        assertEquals(au.getUser("Doom").getPassword(), c);
+        assertEquals(au.getUser("Doom").getLevel(), 4);
+        assertEquals(au.getUser("Doom").getPoints(), 1);
     }
 }

@@ -19,91 +19,93 @@
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> robots.RobotTest;
 <a class="jxr_linenumber" name="L12" href="#L12">12</a>  
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment">/*</em>
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * This is the action listener class. </em>
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * &lt;p&gt;</em>
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * This class listens to user input and updates the window accordingly. It receives character information fron Game class and compares it to user input.</em>
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * It also sends information to the RobotTest class, when it is </em>
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> * used for testing purposes.</em>
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * @author Maaret Dufva</em>
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * @version 0.1.0</em>
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> * @since   0.1.0</em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment"> */</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../fi/maaretdufva/gui/Listener.html">Listener</a> <strong class="jxr_keyword">implements</strong> KeyListener {
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">private</strong> JTextArea writingArea;
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">private</strong> JTextArea text;
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>      <strong class="jxr_keyword">private</strong> JLabel points;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">private</strong> JLabel level;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <strong class="jxr_keyword">private</strong> <a href="../../../fi/maaretdufva/logic/Game.html">Game</a> game;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">private</strong> <a href="../../../fi/maaretdufva/users/User.html">User</a> user;
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <strong class="jxr_keyword">private</strong> JLabel letters;
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     * Constructor.</em>
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>      <a href="../../../fi/maaretdufva/gui/Listener.html">Listener</a>(<a href="../../../fi/maaretdufva/users/User.html">User</a> user, JTextArea writingArea, JTextArea text, JLabel points, JLabel level, JLabel letters) {
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <strong class="jxr_keyword">this</strong>.writingArea = writingArea;
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>          <strong class="jxr_keyword">this</strong>.text = text;
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>          <strong class="jxr_keyword">this</strong>.user = user;
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>          <strong class="jxr_keyword">this</strong>.game = <strong class="jxr_keyword">new</strong> <a href="../../../fi/maaretdufva/logic/Game.html">Game</a>(user);
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>          <strong class="jxr_keyword">this</strong>.points = points;
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>          <strong class="jxr_keyword">this</strong>.level = level;
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>          <strong class="jxr_keyword">this</strong>.letters = letters;
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>      }
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>      @Override
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyTyped(KeyEvent ke) {
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">if</strong> (ke.getKeyChar() == game.sendToListener()) {
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>              user.addPoint();
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>              user.deductPoint();
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>          }
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>          sendToRobot();
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          points.setText(String.valueOf(user.getPoints()));
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>          level.setText(String.valueOf(user.countLevelbyPoints()));
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          writingArea.setText(<span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          text.setText(game.getTypeThis());
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>          letters.setText(game.getLettersLearned());
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>      }
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>  
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment">     * If the RobotTest is being used, this method will provide it with</em>
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">     * information about the next character to type.</em>
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> sendToRobot() {
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>          <em class="jxr_comment">//This is code for the gui test robot. Unquote the command in keyTyped(), </em>
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          <em class="jxr_comment">//and run the program from RobotTest class. </em>
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <em class="jxr_comment">//(Right click -&gt; Run file or set RobotTest to Main class.)</em>
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <em class="jxr_comment">//</em>
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <a href="../../../robots/RobotTest.html">RobotTest</a> robot = <strong class="jxr_keyword">new</strong> <a href="../../../robots/RobotTest.html">RobotTest</a>();
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>              robot.setText(game.getKey());
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>          } <strong class="jxr_keyword">catch</strong> (Exception ex) {
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>              Logger.getLogger(Listener.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          }
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>      }
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * This is a keylistener class for the main game window. It listen's to what </em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * the user types and compares it with what she is expected to type. </em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * It also counts points and letters the user has already learned. </em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> * This class listens to user input and updates the window accordingly. It receives character information fron Game class and compares it to user input.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * It also sends information to the RobotTest class, when it is </em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * used for testing purposes.</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> * @author Maaret Dufva</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment"> * @version 0.1.0</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment"> * @since   0.1.0</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../fi/maaretdufva/gui/Listener.html">Listener</a> <strong class="jxr_keyword">implements</strong> KeyListener {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      <strong class="jxr_keyword">private</strong> JTextArea writingArea;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">private</strong> JTextArea text;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <strong class="jxr_keyword">private</strong> JLabel points;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">private</strong> JLabel level;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <strong class="jxr_keyword">private</strong> <a href="../../../fi/maaretdufva/logic/Game.html">Game</a> game;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">private</strong> <a href="../../../fi/maaretdufva/users/User.html">User</a> user;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">private</strong> JLabel letters;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     * Constructor.</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      <a href="../../../fi/maaretdufva/gui/Listener.html">Listener</a>(<a href="../../../fi/maaretdufva/users/User.html">User</a> user, <a href="../../../fi/maaretdufva/logic/Game.html">Game</a> game, JTextArea writingArea, JTextArea text, JLabel points, JLabel level, JLabel letters) {
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          <strong class="jxr_keyword">this</strong>.writingArea = writingArea;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          <strong class="jxr_keyword">this</strong>.text = text;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          <strong class="jxr_keyword">this</strong>.game = game;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          <strong class="jxr_keyword">this</strong>.user = user;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          <strong class="jxr_keyword">this</strong>.points = points;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">this</strong>.level = level;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          <strong class="jxr_keyword">this</strong>.letters = letters;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      }
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      @Override
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyTyped(KeyEvent ke) {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">if</strong> (ke.getKeyChar() == game.sendToListener()) {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              user.addPoint();
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>              user.deductPoint();
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          }
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <em class="jxr_comment">//sendToRobot();</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          String userpoints = String.valueOf(user.getPoints());
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          points.setText(userpoints);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          level.setText(String.valueOf(game.getLevel()));
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          text.setText(game.getTypeThis());
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          writingArea.setText(<span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          letters.setText(game.getLettersLearned());
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      }
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     * If the RobotTest is being used, this method will provide it with</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">     * information about the next character to type.</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> sendToRobot() {
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <em class="jxr_comment">//This is code for the gui test robot. Unquote the command in keyTyped(), </em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <em class="jxr_comment">//and run the program from RobotTest class. </em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <em class="jxr_comment">//(Right click -&gt; Run file or set RobotTest to Main class.)</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <a href="../../../robots/RobotTest.html">RobotTest</a> robot = <strong class="jxr_keyword">new</strong> <a href="../../../robots/RobotTest.html">RobotTest</a>();
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              robot.setText(game.getKey());
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          } <strong class="jxr_keyword">catch</strong> (Exception ex) {
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              Logger.getLogger(Listener.<strong class="jxr_keyword">class</strong>.getName()).log(Level.SEVERE, <strong class="jxr_keyword">null</strong>, ex);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          }
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>      @Override
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyPressed(KeyEvent ke) {
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <em class="jxr_comment">//Pressing enter doesn't deduct points</em>
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <strong class="jxr_keyword">if</strong> (ke.getKeyCode() == KeyEvent.VK_ENTER) {
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>              user.addPoint();
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>          }
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>      }
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>      @Override
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyReleased(KeyEvent ke) {
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>      }
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>  
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getPoints() {
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">return</strong> user.getPoints();
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>      }
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>  }
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      }
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      @Override
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyPressed(KeyEvent ke) {
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          <em class="jxr_comment">//Pressing enter doesn't deduct points</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <strong class="jxr_keyword">if</strong> (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              user.addPoint();
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          }
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      }
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      @Override
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyReleased(KeyEvent ke) {
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      }
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getPoints() {
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          <strong class="jxr_keyword">return</strong> user.getPoints();
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      }
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016. All rights reserved.</div>

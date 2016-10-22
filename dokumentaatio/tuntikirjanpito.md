@@ -18,6 +18,11 @@ Päivä | Tunnit | Kuvaus
 12.10.2016 | 3 | Letters-luokan korjaaminen (hakee kirjaimet taulukosta eikä if-lauseilla), isojen kirjaimien ja välimerkkien lisääminen, robotille lisää kirjaimia.
 14.10.2016 | 4 | Letters-luokan parantelua edelleen, opittujen kirjaimien lisääminen kuuntelijaan ja testien päivitys.
 16.10.2016 | 4 | Pit ja Checkstyle, käyttöohje, rakennekuvaus ja jar-tiedosto.
+20.10.2016 | 4 | Käyttäjien rekisteröintien ja sisäänkirjautumisten luomista.
+21.10.2016 | 8 | Taistelua käyttäjien rekisteröintien ja sisäänkirjautumisten kanssa.
+22.10.2016 | 10 | Uuvuttavaa taistelua käyttäjien rekisteröintien ja sisäänkirjautumisten kanssa + ohjelman korjauksia + testien tekemistä ja dokumentointia.
+
+
 
 
 

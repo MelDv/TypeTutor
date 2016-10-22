@@ -32,7 +32,6 @@ public class AllUsers {
         if (!file.canExecute()) {
             try {
                 file.createNewFile();
-                System.out.println("File not created at AllUsers constructor");
             } catch (IOException ex) {
                 Logger.getLogger(AllUsers.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -44,6 +43,8 @@ public class AllUsers {
 
     /**
      * Writes new users to file.
+     * 
+     * @param user given by RegisterListener, which orders the filewrite process.
      */
     public void writeToFile(User user) {
         FileWriter writer = null;
