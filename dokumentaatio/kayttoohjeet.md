@@ -13,5 +13,7 @@ Opit kirjoittamaan myös isot kirjaimet ja välimerkit.
 
 ![Edistyneen harjoitteluikkuna](ikkuna3.png "ikkuna")
 
+Voit kirjautua ohjelmaan "login"-painikkeesta tai luoda uuden käyttäjän suoraan ohjelman ikkunasta kirjoittamalla käyttäjänimen ja salasanan. Kun olet kirjautunut, tulee näkyviin "logout"-nappi, jolla voit kirjautua ulos.
+
 
 ###Mukavaa harjoittelua!
