@@ -1,4 +1,4 @@
-﻿# TypeTutor
+# TypeTutor
 
 **TypeTutor on java-ohjelma kymmensormijärjestelmän opetteluun.**
 
@@ -6,7 +6,7 @@ Kymmensormijärjestelmä on erittäin hyödyllinen taito ja se on nopea oppia, m
 
 TypeTutoria voi käyttää kuka tahansa, joka ei halua enää hukata aikaa kirjainten etsimiseen näppäimistöltä.
 
-##Dokumentaatio:
+## Dokumentaatio:
 
 * [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 * [Rakennekuvaus](dokumentaatio/rakennekuvaus.md)
